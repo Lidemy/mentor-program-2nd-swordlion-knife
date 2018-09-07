@@ -4,4 +4,5 @@ export const printStars = (n) => {
 		str = str + "\n*";
 	}
 	console.log(str);
+	return str;
 }
