@@ -3,6 +3,5 @@ function printStars(n) {
 	for (var a = 1 ; a < n; a++) {
 		str = str + "\n*";
 	}
-	return str;
-    console.log(printStars(n));
+	console.log(str);
 }
