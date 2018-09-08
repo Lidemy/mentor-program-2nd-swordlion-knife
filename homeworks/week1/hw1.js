@@ -1,6 +1,6 @@
 export const printStars = (n) => {
 	var str = "*";
-	for (var a = 1 ; a < n; a++) {
+	for (var i = 1 ; i < n; i++) {
 		str = str + "\n*";
 	}
 	console.log(str);
