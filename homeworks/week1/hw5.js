@@ -1,7 +1,7 @@
 export const join = (str, concatStr) => {
 	var ans = [];
-	for (var a = 0; a < str.length-1; a++) {
-		ans += str[a] + concatStr;
+	for (var i = 0; i < str.length-1; i++) {
+		ans += str[i] + concatStr;
 	}
 	ans += str[str.length-1];
 
@@ -10,7 +10,7 @@ export const join = (str, concatStr) => {
 
 export const repeat = (str, times) => {
  	var ans = [];
- 	for (var a =0 ; a < times; a++) {
+ 	for (var i =0 ; i < times; i++) {
  		ans += str;
  	}
  	return ans;
