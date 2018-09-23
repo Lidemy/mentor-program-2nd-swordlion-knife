@@ -2,16 +2,16 @@ function zerosupport(a,b) {
 	var str = '';
 	if(parseInt(a) > parseInt(b)) {
 		for (var i = 0; i < a.length;i++) {
-			(b[b.length-i-1] == true) ? str += b[b.length-i-1] : str += 0 ;
+			(a.length-b.length-i > 0) ? str += 0 : str += b[i-(a.length-b.length)] ;
 		}
+
 	} else {
 		for (var i = 0; i < b.length;i++) {
-			(a[a.length-i-1] == true) ? str += a[a.length-i-1] : str += 0 ;
+			(b.length-a.length-i > 0) ? str += 0 : str += a[i-(b.length-a.length)] ;
 		}
 	}
 	return str;
 }
 
-console.log(zerosupport(221,2))
 
 module.exports = zerosupport;
