@@ -1,0 +1,49 @@
+body {
+	max-width: 500px;
+	height:500px;
+	margin-top: 100px;
+	margin-left: 400px;
+}
+.Container {
+	border: 0.5px solid gray;
+}
+.InputArea {
+	width: 90%;
+	height: 80px;
+	margin: 15px auto;
+	border: 0.5px solid gray;
+	font-size: 40px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.NumArea__row {
+	width:90%;
+	margin: 0px auto;
+	display: flex;
+	justify-content: space-between;
+}
+.NumArea__row:last-child {
+	margin-bottom:10px;
+}
+.Delete , .Num , .Operator , .Equal , .Decimal-point {
+	display: inline-flex;
+	border:0.5px solid gray;
+	width:100px;
+	height: 30px;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	transition: all 0.5s ease;
+}
+.Delete:hover , .Num:hover , .Operator:hover , .Equal:hover , .Decimal-point:hover {
+	cursor: pointer;
+	background: yellow;
+}
+
+.Equal {
+	width:217px;
+	background-color: orange;
+}

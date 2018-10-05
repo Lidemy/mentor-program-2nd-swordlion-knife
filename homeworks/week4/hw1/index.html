@@ -1,0 +1,159 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="mentor-program-2nd-swordlion-week4hw1">
+		<link rel="stylesheet" type="text/css" href="hw1style.css">
+		<title>Swordlion-Calculator</title>
+	</head>
+
+	<script type="text/javascript">
+
+
+				let Input1 = '';
+				let Input2 = '';
+				let Operator = '';
+
+
+		document.addEventListener('DOMContentLoaded', () => {
+			document.querySelector('.NumArea').addEventListener('click', e => {
+				
+				let ansArea = document.querySelector('.InputArea');
+
+				if(e.target.className === "Delete") {
+					ansArea.innerText = '';
+					Input1 = '';
+					Input2 = '';
+					Operator = '';
+				}
+				if(e.target.className === "Num" || e.target.className === "Decimal-point" ) {
+					if(Operator && ansArea.innerText == Input1 ) {
+						ansArea.innerText = '';
+					}
+					// 幾種可能性
+					// 0的可能性
+					if(e.target.innerText === '0' && ansArea.innerText == '' || e.target.innerText === '0' && ansArea.innerText !== '0') {
+						ansArea.innerText += '0';
+					} else if (e.target.innerText == '.' && ansArea.innerText == '0' || e.target.innerText == '.' && ansArea.innerText !== '' && ansArea.innerText.indexOf('.') == -1) {
+						// . 的可能性
+						ansArea.innerText += '.';
+					} else if (e.target.innerText !== '0' && e.target.innerText !== '.' ) {
+						// 其他數字的可能性
+						ansArea.innerText += e.target.innerText;
+					}
+				}
+				// 運算部分
+
+				if(e.target.className === "Operator" && ansArea.innerText &&Input1 == '' && Operator == '') {
+						Input1 = ansArea.innerText;
+						Operator = e.target.innerText;
+				} 
+				// 連續運算 (案過等號了)
+				else if (e.target.className === "Operator" && Input1 && Input2) {
+					Input1 = ansArea.innerText;
+					Input2 = '';
+					Operator = e.target.innerText;
+				}
+				// 連續加減乘除 (連續按下運算子)
+				else if (e.target.className === "Operator" && Input1 && !Input2 && Input1 !== ansArea.innerText) {
+					Input2 = ansArea.innerText;
+					if(Operator == '×') {
+						Operator = '*';
+					} else if (Operator == '÷') {
+						Operator = '/';
+					}
+					ansArea.innerText = eval(Input1 + Operator + Input2);
+					Input1 = ansArea.innerText;
+					Input2 = '';
+					Operator = e.target.innerText;
+				}
+
+				if(e.target.className === "Equal" && ansArea.innerText && Input1 && !Input2) {
+					Input2 = ansArea.innerText;
+					if(Operator == '×') {
+						Operator = '*';
+					} else if (Operator == '÷') {
+						Operator = '/';
+					}
+					ansArea.innerText = eval(Input1 + Operator + Input2);
+				}
+
+
+			})
+		})
+
+	</script>
+
+	<body>
+		<div class="Container">
+			<div class="InputArea">
+			</div>
+
+			<div class="NumArea">
+				<div class="NumArea__row">
+					<div class="Delete">
+						AC
+					</div>
+					<div class="Operator">
+						÷
+					</div>
+				</div>
+				<div class="NumArea__row">
+					<div class="Num">
+						7
+					</div>
+					<div class="Num">
+						8
+					</div>
+					<div class="Num">
+						9
+					</div>
+					<div class="Operator">
+						×
+					</div>
+				</div>
+				<div class="NumArea__row">
+					<div class="Num">
+						4
+					</div>
+					<div class="Num">
+						5
+					</div>
+					<div class="Num">
+						6
+					</div>
+					<div class="Operator">
+						-
+					</div>
+				</div>
+				<div class="NumArea__row">
+					<div class="Num">
+						1
+					</div>
+					<div class="Num">
+						2
+					</div>
+					<div class="Num">
+						3
+					</div>
+					<div class="Operator">
+						+
+					</div>
+				</div>
+				<div class="NumArea__row">
+					<div class="Num">
+						0
+					</div>
+					<div class="Decimal-point">
+						.
+					</div>
+					<div class="Equal">
+						=
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</body>
+
+</html>
