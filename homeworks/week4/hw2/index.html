@@ -1,12 +1,13 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width,intial-scale=1">
+		<meta name="viewport" content="width=device-width">
 		<meta name="description" content="mentor-program-2nd-swordlion-wee4hw2">
 		<link rel="stylesheet" type="text/css" href="hw2style.css">
+		<script type="text/javascript" src="hw2DOM.js"></script>
 		<title>Swordlion-表單驗證</title>
 	</head>
-
+	
 	<body>
 		<div class="MapleBackground">
 		</div>
@@ -27,13 +28,13 @@
 			<div class="MainArea__AnswerArea">
 				<div class="MainArea__AnswerArea__block">
 					<div class="MainArea__AnswerArea__Question">
-						電子郵件地址 *
+						電子郵件地址 
 					</div>
 					<input class="InputArea" type="email" name="emailAddress" placeholder="你的電子郵件"/>
 				</div>
 				<div class="MainArea__AnswerArea__block">
 					<div class="MainArea__AnswerArea__Question">
-						暱稱 *
+						暱稱 
 					</div>
 					<div class="MainArea__AnswerArea__Question__description">
 						該如何稱呼你
@@ -42,16 +43,20 @@
 				</div>
 				<div class="MainArea__AnswerArea__block">
 					<div class="MainArea__AnswerArea__Question">
-						報名類型 *
+						報名類型 
 					</div>
 					<ul>
-						<ol>從零到一基礎班（一個月後開始收保證金 3000，淘汰不退還，結業後兩個月內找到工作付一個月半薪水，沒工作不用付）</ol>
-						<ol>在職工程師加強班（一個月後開始收保證金 3000，兩個月時收學費 30000，被淘汰不退還）</ol>
+						<div class="List">
+							<div class="List__label">○</div><div class="List__p">從零到一基礎班（一個月後開始收保證金 3000，淘汰不退還，結業後兩個月內找到工作付一個月半薪水，沒工作不用付）</div>
+						</div>
+						<div class="List">
+							<div class="List__label">○</div><div class="List__p">在職工程師加強班（一個月後開始收保證金 3000，兩個月時收學費 30000，被淘汰不退還）</div>
+						</div>
 					</ul>
 				</div>
 				<div class="MainArea__AnswerArea__block">
 					<div class="MainArea__AnswerArea__Question">
-						現在的職業 *
+						現在的職業 
 					</div>
 					<div class="MainArea__AnswerArea__Question__description">
 						範例：學生、前端工程師、待業中、業務
@@ -60,7 +65,7 @@
 				</div>
 				<div class="MainArea__AnswerArea__block">
 					<div class="MainArea__AnswerArea__Question">
-						是否有程式相關背景？ *
+						是否有程式相關背景？ 
 					</div>
 					<div class="MainArea__AnswerArea__Question__description">
 						範例：無、高中時候學過C++、學過一點網頁前端、目前在資策會上課...
@@ -69,7 +74,7 @@
 				</div>
 				<div class="MainArea__AnswerArea__block">
 					<div class="MainArea__AnswerArea__Question">
-						其他 *
+						其他 
 					</div>
 					<div class="MainArea__AnswerArea__Question__description">
 						任何你想說的
@@ -77,9 +82,11 @@
 					<input class="InputArea" type="text" name="anything" placeholder="您的回答"/>
 				</div>
 			</div>
-			<button type="submit">提交</button>
-			<div class="BottomWord">
-				請勿利用 Google 表單送出密碼。
+			<div>
+				<button type="submit">提交</button>
+				<div class="BottomWord">
+					請勿利用 Google 表單送出密碼。
+				</div>
 			</div>
 
 		</div>
