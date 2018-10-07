@@ -44,7 +44,7 @@ a {
 }
 .MainArea__AnswerArea__block {
 	padding: 20px 5px;
-	
+	margin-top:20px;
 }
 .MainArea__AnswerArea__Question {
 	line-height: 200%;
@@ -89,7 +89,7 @@ ul {
 	font-size: 13px;
 	padding-left: 5px;
 }
-button {
+.submit {
 	margin-top:50px;
 	margin-bottom: 30px;
 	margin-left:10px; 
@@ -108,4 +108,9 @@ button {
     top: -44px;
     font-size: 30px;
     left: 6px;
+}
+.warningsign {
+	margin: 10px;
+	color:red;
+	font-size: 13px;
 }
