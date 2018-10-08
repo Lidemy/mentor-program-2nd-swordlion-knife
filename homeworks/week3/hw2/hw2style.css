@@ -1,0 +1,37 @@
+.Container,.Title {
+	max-width: 960px;
+	margin: 30px auto;
+}
+
+h1 {
+	font-size: 42px;
+	margin: 40px 0px;
+}
+p {
+	font-size: 20px;
+	margin: 20px 0px;
+}
+.Hand {
+	position: fixed;
+	left:30px;
+	top:100px;
+	width: 60px;
+    height: 60px;
+	border:0.5px solid gray;
+	border-radius: 99em;
+	transition:border-color 0.5s ease;
+}
+.Hand:hover {
+	border-color:green;
+}
+
+.Hand__num {
+	position: absolute;
+	top:10px;
+	left:18px;
+}
+.Hand__pic {
+	position: relative;
+	top:30px;
+	left:18px;
+}

@@ -1,0 +1,85 @@
+body {
+	font-family: sans-serif;
+	margin:0px;
+}
+.Header {
+	margin-top: 50px;
+	background: #E9FAFF;
+}
+.NavBar {
+	width:100%;
+	height:50px;
+	background: #1F2835;
+	position: fixed;
+	top:0px;
+	left: 0px;
+	color:white;
+}
+.NavBar div {
+	margin: 12px;
+	display: inline-block;
+
+}
+.NavBar__NavBar {
+	font-size: 20px;
+}
+.NavBar__Link ul {
+	display: inline;
+	padding:0px;
+	color:gray;
+}
+.NavBar__Link ul:hover {
+	color:white;
+}
+.NavBar__Link ul:nth-child(2) {
+	padding-left: 10px;
+}
+.Topic {
+	max-width:960px;
+	margin: 0px auto;
+	padding: 40px 30px;
+}
+.Topic__Title {
+	font-size: 72px;
+}
+.Topic__Button {
+	border-radius: 6px;
+	padding:20px;
+	background-color: blue;
+	font-size: 20px;
+	color: white;
+	transition: background-color 0.3s ease;
+}
+.Topic__Button:hover {
+	background-color: #20203c;
+}
+.Heading {
+	max-width:960px;
+	margin: 0px auto;
+	padding: 40px 30px;
+}
+.Heading__Topic {
+	display: inline-block;
+	max-width: 300px;
+}
+.Heading__Title {
+	font-size: 40px;
+}
+.Heading__Button {
+	border-radius: 6px;
+	padding:10px;
+	background-color: purple;
+	font-size: 15px;
+	color: white;
+	transition: background-color 0.3s ease;
+}
+.Heading__Button:hover {
+	background-color: #923392;
+}
+.Company {
+	height: 100px;
+	border-top: 1px solid gray;
+	max-width: 960px;
+	margin:0px auto;
+	padding: 40px;
+}
