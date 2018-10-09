@@ -1,0 +1,48 @@
+body {
+	background-image:url("supportimg.jpg");
+}
+.Title {
+	display: flex;
+	max-width:200px;
+	height: 100px;
+	margin: 50px auto;
+}
+img {
+	width:100%;
+}
+.DisplayArea {
+	margin:0px auto;
+	width:60%;
+}
+.DisplayArea__Block {
+	display: flex;
+	justify-content: flex-start;
+}
+.DisplayArea__ContentArea {
+	margin:5px 5px;
+	background:rgba(51, 51, 0, 0.6);
+	width: 32%;
+}
+.DisplayArea__ContentArea__Pic {
+	display: flex;
+    height: 200px;
+}
+.DisplayArea__ContentArea__LogoDescription {
+	display: flex;
+	align-items: center;
+	height:72px;
+}
+.DisplayArea__ContentArea__livesmall {
+	width:50px;
+	border-radius: 100%;
+	margin-left: 10px;
+}
+.DisplayArea__ContentArea__text {
+	margin:10px;
+	font-size: 13px;
+	color: white;
+}
+.DisplayArea__ContentArea:hover {
+	cursor: pointer;
+}
+
