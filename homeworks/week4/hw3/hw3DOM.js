@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded' , function () {
 	var request = new XMLHttpRequest();
 	request.open('get','https://api.twitch.tv/kraken/streams?game=League%20of%20Legends&limit=20' ,true);
 	request.setRequestHeader('Client-ID', 'nw4wklhsuzrv6qlmi2ck1hbvhz9vf8');
-	request.onload =  function () {
+	request.onload = () => {
 		// 200 <= request.status <= 400 代表正常
 		if(request.status >= 200 && request.status < 400) {
 			var resp = request.responseText;
