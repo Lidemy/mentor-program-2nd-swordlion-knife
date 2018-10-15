@@ -42,7 +42,7 @@
 				<form class="comment__form" action="add_comment.php" method="post">
 					<div class="comment__form__icon">
 						<?php
-							$stmt = $conn->prepare("SELECT * from swordlion_kniefe_users LEFT JOIN swordlion_kniefe_users_certificate ON swordlion_kniefe_users_certificate.username = swordlion_kniefe_users.username WHERE certificate = ?");
+							$stmt = $conn->prepare("SELECT * from swordlion_knife_users LEFT JOIN swordlion_knife_users_certificate ON swordlion_knife_users_certificate.username = swordlion_knife_users.username WHERE certificate = ?");
 							$stmt-> bind_param("s", $_COOKIE["member_id"]);
 							$stmt-> execute();
 							$find = $stmt->get_result();

@@ -1,6 +1,6 @@
 <div class='container commentarea'>
 	<?php
-		$stmt = $conn->prepare("SELECT * FROM swordlion_kniefe_users LEFT JOIN swordlion_kniefe_comments ON swordlion_kniefe_comments.user_id = swordlion_kniefe_users.id WHERE major = 0 ORDER BY created_at DESC");
+		$stmt = $conn->prepare("SELECT * FROM swordlion_knife_users LEFT JOIN swordlion_knife_comments ON swordlion_knife_comments.user_id = swordlion_knife_users.id WHERE major = 0 ORDER BY created_at DESC");
 		$stmt->execute();
 		$insure = $stmt->get_result(); 
 		if ($insure->num_rows > 0) {
@@ -35,7 +35,7 @@
 			<form class="comment__form adding" action="add_comment.php" method="POST">
 				<div class="comment__form__icon marginbottomzero">
 					<?php
-						$stmt2 = $conn->prepare("SELECT * from swordlion_kniefe_users LEFT JOIN swordlion_kniefe_users_certificate ON swordlion_kniefe_users_certificate.username = swordlion_kniefe_users.username WHERE certificate = ?");
+						$stmt2 = $conn->prepare("SELECT * from swordlion_knife_users LEFT JOIN swordlion_knife_users_certificate ON swordlion_knife_users_certificate.username = swordlion_knife_users.username WHERE certificate = ?");
 						$stmt2-> bind_param("s", $_COOKIE["member_id"]);
 						$stmt2-> execute();
 						$find = $stmt2->get_result();
@@ -59,7 +59,7 @@
 		<?php
 			}
 			//每個主留言欄的迴圈裡面還得再抓副留言
-			$stmt1 = $conn->prepare("SELECT * FROM swordlion_kniefe_comments LEFT JOIN swordlion_kniefe_users ON swordlion_kniefe_comments.user_id = swordlion_kniefe_users.id WHERE major = ? ORDER BY created_at DESC");
+			$stmt1 = $conn->prepare("SELECT * FROM swordlion_knife_comments LEFT JOIN swordlion_knife_users ON swordlion_knife_comments.user_id = swordlion_knife_users.id WHERE major = ? ORDER BY created_at DESC");
 			$stmt1->bind_param("s" , $data["num"]);
 			$stmt1->execute();
 			$subcommentcreater = $stmt1->get_result();
