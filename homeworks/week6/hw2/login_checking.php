@@ -12,14 +12,14 @@
 	    $password = md5($_POST['passwords']); 
 
 
-	    $stmt = $conn->prepare("SELECT * from swordlion_kniefe_users WHERE username=? and password=?");
+	    $stmt = $conn->prepare("SELECT * from users WHERE username=? and password=?");
 		$stmt->bind_param("ss", $username, $password);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		if ($result->num_rows > 0) {
 			$row = $result->fetch_assoc();
 			//設置通行證
-			$stmt2 = $conn->prepare("SELECT * from swordlion_kniefe_users_certificate WHERE username = ?");
+			$stmt2 = $conn->prepare("SELECT * from users_certificate WHERE username = ?");
 			$stmt2->bind_param("s", $username);
 			$stmt2->execute();
 			$fetch = $stmt2->get_result();

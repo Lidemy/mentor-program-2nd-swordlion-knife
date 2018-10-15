@@ -16,6 +16,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 		<title>劍獅的留言小天地</title>
+		<script src="script.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
 
