@@ -32,7 +32,7 @@
 				// 如果沒登入主留言欄會顯示登入
 					if(!$is_login) {
 				?>
-						<div class="comment-display__login">
+						<div class="comment-display__login adding">
 							<a href="login.php" class="button">登入以進行留言</a>
 						</div>
 				<?php

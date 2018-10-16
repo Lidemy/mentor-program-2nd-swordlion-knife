@@ -1,6 +1,7 @@
 body {
 	margin: 0px; 
 	font-family:微軟正黑體;
+	background-color: white;
 }
 .container {
 	max-width:700px;
@@ -26,13 +27,7 @@ body {
 	width:240px;
 }
 .comment-display__login {
-	margin: 20px 0px;
-	padding:10px 30px; 
-	border:1px solid gray;
-	border-radius: 10px;
-	background: #b5b4b4;
-	display: flex;
-    justify-content: center;
+	text-align: center;
 }
 .comment-display__login > a {
 	font-size:20px;
@@ -68,8 +63,8 @@ body {
 }
 .button__2 {
 	position: relative;
-	margin-top:30px;
-	margin-bottom:20px; 
+	margin-top:15px;
+	margin-bottom:15px; 
 	margin-right: 12%; 
 	padding:10px 30px; 
 	border-radius: 10px;
@@ -91,6 +86,7 @@ input:hover {
 	width:100%;
 	height:200px;
 	resize: none;
+	outline: none;
 	border-color:black;
 	font-size: 18px;
 	border-radius: 10px;
@@ -152,7 +148,6 @@ input:hover {
 }
 .adding {
 	padding: 10px;
-	padding-top: 10px;
 	background:#b5b4b4;
 	margin-bottom:10px; 
 	border-radius: 15px;
@@ -181,6 +176,11 @@ input:hover {
 .marginbottomzero {
 	margin-bottom: 0px;
 }
+.sub-list {
+	display: flex;
+	flex-wrap:wrap;
+	justify-content: center;
+}
 .sub_comment {
 	padding-bottom: 0px;
 }
@@ -194,6 +194,7 @@ input:hover {
 	.pic {
 		height: 335px;
 		max-width: 434px;
+		margin-bottom: -170px
 	}
 	.button__2 {
 		display: flex;
@@ -201,10 +202,16 @@ input:hover {
 		margin-left:10px; 
 	}
 	.navBar__title {
-		font-size: 25px;
+		font-size: 20px;
 	}
 	.comment__form {
 		text-align: left;
+		font-size: 18px;
+	}
+	.inputarea {
+		margin: 0px;
+		margin-bottom: 10px;
+		width:90%;
 	}
 }
 @media screen and (max-width: 1098px) {
