@@ -13,7 +13,7 @@
 	   	$password = md5($_POST['passwords']);
 	   	$nickname = $_POST['nickname'];
 		
-	   	$stmt = $conn->prepare("SELECT * from swordlion_knife_users WHERE username=?");
+	   	$stmt = $conn->prepare("SELECT * from users WHERE username=?");
 	   	$stmt->bind_param("s",$username);
 	    $stmt->execute();
 	    $result = $stmt->get_result();
@@ -22,14 +22,14 @@
 			echo "<script>alert ('這帳號太夯了!換一個霸脫');location.href ='register.php';</script>";
 		} else {
 			
-		   	$stmt2 =$conn->prepare( "INSERT INTO swordlion_knife_users (username, password,nickname) VALUES (?, ?, ?)");
+		   	$stmt2 =$conn->prepare( "INSERT INTO users (username, password,nickname) VALUES (?, ?, ?)");
 		   	$stmt2->bind_param("sss",$username,$password,$nickname);
 		    $stmt2->execute();
 			
 			if ($stmt2){
 				//設置通行證
 				$cookie = randtext();
-				$stmt3 = $conn->prepare("INSERT INTO swordlion_knife_users_certificate ( username, certificate) VALUES (?,?)");
+				$stmt3 = $conn->prepare("INSERT INTO users_certificate ( username, certificate) VALUES (?,?)");
 				$stmt3->bind_param("ss", $username,$cookie );
 				$stmt3->execute();
 

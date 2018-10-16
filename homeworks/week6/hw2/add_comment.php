@@ -2,7 +2,7 @@
 	require('connection.php');
 
 
-	$stmt = $conn->prepare("SELECT * from swordlion_knife_users_certificate LEFT JOIN swordlion_knife_users on swordlion_knife_users_certificate.username = swordlion_knife_users.username WHERE certificate = ? ");
+	$stmt = $conn->prepare("SELECT * from swordlion_kniefe_users_certificate LEFT JOIN swordlion_kniefe_users on swordlion_kniefe_users_certificate.username=swordlion_kniefe_users.username WHERE certificate = ? ");
 	$stmt->bind_param("s", $_COOKIE["member_id"]);
 	$stmt->execute();
 	$result = $stmt->get_result();
@@ -23,13 +23,13 @@
 	    // 主留言
 
 	    if($major === '0') {
-	    	$stmt = $conn->prepare("INSERT INTO swordlion_knife_comments (`major`,`user_id` , `content`) VALUES ('0',? ,?)");
+	    	$stmt = $conn->prepare("INSERT INTO swordlion_kniefe_comments (`major`,`user_id` , `content`) VALUES ('0',? ,?)");
 	    	$stmt->bind_param("ss",$user_id, $content);
 	    	$stmt->execute();
 
 			if ($stmt) {
 				//抓取剛剛插入的主留言資訊
-				$stmt = $conn->prepare("SELECT * FROM swordlion_knife_users LEFT JOIN swordlion_knife_comments ON swordlion_knife_comments.user_id = swordlion_knife_users.id WHERE major = 0 ORDER BY created_at DESC");
+				$stmt = $conn->prepare("SELECT * FROM swordlion_kniefe_users LEFT JOIN swordlion_kniefe_comments ON comments.swordlion_kniefe_user_id = swordlion_kniefe_users.id WHERE major = 0 ORDER BY created_at DESC");
 				$stmt->execute();
 				$insure = $stmt->get_result(); 
 				if ($insure->num_rows >0) {
@@ -51,13 +51,13 @@
 
 
 	    else {
-	    	$stmt = $conn->prepare("INSERT INTO swordlion_knife_comments (`major`,`user_id` , `content`) VALUES (?,?,?)");
+	    	$stmt = $conn->prepare("INSERT INTO swordlion_kniefe_comments (`major`,`user_id` , `content`) VALUES (?,?,?)");
 	    	$stmt->bind_param("sss",$major,$user_id, $content);
 	    	$stmt->execute();
 			
 			if ($stmt) {
 					//抓取剛剛插入的副留言資訊
-				$stmt =$conn->prepare("SELECT * FROM swordlion_knife_users LEFT JOIN swordlion_knife_comments ON swordlion_knife_comments.user_id = swordlion_knife_users.id WHERE major = ? ORDER BY created_at DESC");
+				$stmt =$conn->prepare("SELECT * FROM swordlion_kniefe_users LEFT JOIN swordlion_kniefe_comments ON swordlion_kniefe_comments.user_id = swordlion_kniefe_users.id WHERE major = ? ORDER BY created_at DESC");
 				$stmt->bind_param("s",$_POST['major']);
 				$stmt->execute();
 				$insure = $stmt->get_result(); 
