@@ -17,8 +17,11 @@
 		}
 	}	
 
-
-	if (isset($_POST['usernames']) && isset($_POST['passwords']) && isset($_POST['nickname']) && !empty($_POST['usernames']) && !empty($_POST['passwords']) && !empty($_POST['nickname'] && $check == 1)) {
+	if(strlen($_POST['nickname']) > 11) {
+		echo "<script>alert ('暱稱太長了啦!來個11個字以下的');location.href ='register.php';</script>";
+	}
+	
+	if (isset($_POST['usernames']) && isset($_POST['passwords']) && isset($_POST['nickname']) && !empty($_POST['usernames']) && !empty($_POST['passwords']) && !empty($_POST['nickname'] && $check == 1 && strlen($_POST['nickname']) <= 11)) {
 
 		$username = $_POST['usernames']; 
 	   	$password = md5($_POST['passwords']);

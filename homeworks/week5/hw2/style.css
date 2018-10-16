@@ -134,8 +134,7 @@ input:hover {
 }
 .username {
 	display: block;
-	margin-left:10px;  
-	margin-top:15px;
+	margin-top:9px;
 	font-size: 20px;
 }
 .comment_content {
@@ -190,12 +189,17 @@ input:hover {
 }
 @media screen and (max-width: 700px) {
 	.comment-display {
-		margin: 20px 50px;
+		margin: 20px 20px;
+	}
+	.username {
+		display: flex;
+		flex-wrap: wrap;
+		margin-top: 0px;
 	}
 	.pic {
-		height: 319px;
-		max-width: 464px;
-		margin-bottom: -138px;
+		height: 45%;
+		margin:0px auto;
+		margin-bottom: -150px;
 	}
 	.button__2 {
 		display: flex;
@@ -203,7 +207,7 @@ input:hover {
 		margin-left:10px; 
 	}
 	.navBar__title {
-		font-size: 20px;
+		font-size: 18px;
 	}
 	.comment__form {
 		text-align: left;
