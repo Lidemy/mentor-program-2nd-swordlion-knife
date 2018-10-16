@@ -20,7 +20,7 @@
 					帳號 account :   <input class="inputarea" name="usernames" type="text" /><br>
 					密碼 password :  <input class="inputarea" name="passwords" type="password" />
 					<div class="buttoncenter">
-						<input type="submit" class="button__2" value="登入!"/>
+						<button type="submit" class="button__2">登入!</button>
 						<button class="button__2"><a href="register.php">還沒有帳號嗎QQ</a></button>
 					</div>
 				</form>
