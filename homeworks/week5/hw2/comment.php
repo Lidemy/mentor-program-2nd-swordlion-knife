@@ -1,4 +1,4 @@
-<div class='container commentarea'>
+<div class='container'>
 	<?php
 		$stmt = $conn->prepare("SELECT * FROM swordlion_knife_users LEFT JOIN swordlion_knife_comments ON swordlion_knife_comments.user_id = swordlion_knife_users.id WHERE major = 0 ORDER BY created_at DESC");
 		$stmt->execute();
@@ -7,7 +7,7 @@
 		//只要能抓到主留言，就會一直持續下去
 			while ( $data = $insure->fetch_assoc()) {
 	?>
-	<div class='comment-display main_comment'>
+	<div class='comment-display'>
 		<div class="comment__form__icon">
 			<?php
 				echo "<img src='avatar/". $data['id'] % 9 .".png' class='comment__form__icon__avatar' />";
@@ -20,12 +20,13 @@
 			</div>
 		</div>
 		<div class='comment_content'><?php echo htmlspecialchars($data["content"], ENT_QUOTES,'UTF-8');?></div>
+		<div class='sub-list'>
 		<?php
 			// 主留言下面的留言欄
 			if(!$is_login) {
 			//沒登入顯示
 		?>
-			<div class="comment-display__login">
+			<div class="comment-display__login adding">
 				<a href="login.php" class="button">登入以進行留言</a>
 			</div>
 		<?php
@@ -86,6 +87,7 @@
 			}
 		}
 	?>
+	</div>
 	</div>
 	<?php
 		}

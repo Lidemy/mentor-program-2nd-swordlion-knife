@@ -5,10 +5,24 @@
 	$usernames = '';
 	$passwords = '';
 	$nickname = '';
+	$check = 1 ;
+	for($i = 0; $i < strlen($_POST['usernames']); $i++ ) {
+		if($_POST['usernames'][$i] >= 'Z' || $_POST['usernames'][$i] <= 'A') {
+			if($_POST['usernames'][$i] >= 'z' || $_POST['usernames'][$i] <='a') {
+				if(!is_numeric($_POST['usernames'][$i])) {
+					$check = 0 ;
+					echo "<script>alert ('帳號只能有英文跟數字喔~~再試一次吧!');location.href ='login.php';</script>";
+				}
+			}
+		}
+	}	
 
+	if(strlen($_POST['nickname']) > 11) {
+		echo "<script>alert ('暱稱太長了啦!來個11個字以下的');location.href ='register.php';</script>";
+	}
+	
+	if (isset($_POST['usernames']) && isset($_POST['passwords']) && isset($_POST['nickname']) && !empty($_POST['usernames']) && !empty($_POST['passwords']) && !empty($_POST['nickname'] && $check == 1 && strlen($_POST['nickname']) <= 11)) {
 
-	if (isset($_POST['usernames']) && isset($_POST['passwords']) && isset($_POST['nickname']) && !empty($_POST['usernames']) && !empty($_POST['passwords']) && !empty($_POST['nickname'])) {
-		
 		$username = $_POST['usernames']; 
 	   	$password = md5($_POST['passwords']);
 	   	$nickname = $_POST['nickname'];

@@ -5,9 +5,20 @@
 	$usernames = '';
 	$passwords = '';
 	$nickname = '';
+	$check = 1 ;
+	for($i = 0; $i < strlen($_POST['usernames']); $i++ ) {
+		if($_POST['usernames'][$i] >= 'Z' || $_POST['usernames'][$i] <= 'A') {
+			if($_POST['usernames'][$i] >= 'z' || $_POST['usernames'][$i] <='a') {
+				if(!is_numeric($_POST['usernames'][$i])) {
+					$check = 0;
+					echo "<script>alert ('帳號只能打英文跟數字喔~~再試一次吧!');location.href ='login.php';</script>";
+				}
+			}
+		}
+	}	
 
-	if (isset($_POST['usernames']) && isset($_POST['passwords']) && !empty($_POST['usernames']) && !empty($_POST['passwords'])) {
-		
+	if (isset($_POST['usernames']) && isset($_POST['passwords']) && !empty($_POST['usernames']) && !empty($_POST['passwords']) && $check == 1) {
+
 		$username = $_POST['usernames']; 
 	    $password = md5($_POST['passwords']); 
 
