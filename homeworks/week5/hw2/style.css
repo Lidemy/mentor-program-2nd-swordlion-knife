@@ -61,11 +61,13 @@ body {
 	outline: none;
 	font-size:25px;
 }
+.buttoncenter {
+	display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
 .button__2 {
-	position: relative;
-	margin-top:15px;
-	margin-bottom:15px; 
-	margin-right: 12%; 
+	margin:15px;
 	padding:10px 30px; 
 	border-radius: 10px;
 	background: black;
@@ -206,13 +208,22 @@ input:hover {
 	}
 	.comment__form {
 		text-align: left;
-		font-size: 18px;
+		font-size: 25px;
 	}
 	.inputarea {
 		margin: 0px;
+		margin-top: 10px;
 		margin-bottom: 10px;
 		width:90%;
 	}
+	.buttoncenter {
+		flex-wrap: wrap;
+		justify-content: flex-start;
+	}
+	.button__2 {
+		margin-left: 0px;
+	}
+
 }
 @media screen and (max-width: 1098px) {
 	.pic2 {
