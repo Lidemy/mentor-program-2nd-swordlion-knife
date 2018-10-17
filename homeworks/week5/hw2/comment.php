@@ -12,7 +12,7 @@
 			<?php
 				echo "<img src='avatar/". $data['id'] % 9 .".png' class='comment__form__icon__avatar' />";
 			?>
-			<div class="comment__form__icon__userinformation username">
+			<div class="comment__form__icon__userinformation">
 			<?php
 				echo "<div class='comment__form__icon__userinformation__username'>".$data['nickname']."</div>";
 			?>
@@ -74,7 +74,7 @@
 				<?php
 					echo "<img src='avatar/". $data1['id'] % 9 .".png' class='comment__form__icon__avatar avatar__littlesize' />";
 				?>
-				<div class="comment__form__icon__userinformation username">
+				<div class="comment__form__icon__userinformation">
 				<?php
 					echo "<div class='comment__form__icon__userinformation__username username__littlesize'>".$data1['nickname']."</div>";
 				?>

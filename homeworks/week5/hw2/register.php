@@ -21,7 +21,7 @@
 					密碼 password :  <input class="inputarea" name="passwords" type="password" /><br>
 					暱稱 nickname :  <input class="inputarea" name="nickname" type="text">
 					<div class="buttoncenter">
-						<input type="submit" class="button__2" value="註冊起來!"/>
+						<button type="submit" class="button__2">註冊起來!</button>
 						<button class="button__2"><a href="login.php">我已經有帳號了!</a></button>
 					</div>
 				</form>
