@@ -20,10 +20,12 @@
 	</head>
 
 	<body>
-		<div class="pic"></div>
 		<button class="logout"><a href="logout.php">登出</a></button>
 		<div class="pic2"></div>
 		<div class="container">
+			<div class="pic">
+				<img src="pic.png" class="pic__inside"/>
+			</div>
 			<div class="navBar">
 				<h class="navBar__title">劍獅的小小留言板</h>
 			</div>
