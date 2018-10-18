@@ -2,10 +2,15 @@ body {
 	font-family:微軟正黑體;
 	background-color: white;
 }
+#showbox {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 100px;
+}
 .container {
 	max-width:700px;
 	margin: 0px auto;
-	margin-bottom: 150px; 
+	margin-bottom: 100px; 
 	padding:0px; 
 }
 .pic {
@@ -123,7 +128,7 @@ input:hover {
 	display: flex;
 	margin-bottom: 10px;
 }
-.edit {
+.edit, .edit2 {
 	height:5%;
 	width:59%;
 	margin-right: 20px;
@@ -206,9 +211,6 @@ input:hover {
 	.comment__form__icon__userinformation {
 		flex-basis: 140px;
 	}
-	.edit {
-		margin-top: 2%;
-	}
 	.button__2 {
 		display: flex;
 		justify-content: center;
@@ -236,6 +238,18 @@ input:hover {
 	}
 	.container {
 		max-width: 500px;
+	}
+}
+@media screen and (max-width: 450px) {
+	.edit {
+		margin-top: 2%;
+		position: absolute;
+		width:80%;
+	}
+	.edit2 {
+		margin-top: 2%;
+		position: absolute;
+		width:75%;
 	}
 }
 @media screen and (max-width: 1098px) {

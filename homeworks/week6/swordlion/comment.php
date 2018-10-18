@@ -102,7 +102,7 @@
 				// 如果是使用者本人 跳出修改及刪除留言的小按鈕
 					if($data1['nickname'] == $user_nickname) {
 				?>
-					<div class="dropdown edit">
+					<div class="dropdown edit2">
 						<button class="btn btn-dark dropdown-toggle createcomment" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
