@@ -1,6 +1,6 @@
 <?php
 	
-	require('connection.php');
+	require_once('connection.php');
 
 	if($_POST['content'] == $_POST['helper']) {
 		echo "<script>alert ('這樣沒有改不行捏~~'); location.href ='index.php';</script>";
@@ -21,4 +21,6 @@
 		}
 	}
 
+	$conn->close();
+	
 ?>

@@ -1,6 +1,6 @@
 <?php
 	
-	require('connection.php');
+	require_once('connection.php');
 	
 	$stmt = $conn->prepare("SELECT * FROM swordlion_knife_comments WHERE num = ?");
 	$stmt->bind_param("s",$_COOKIE["temporary"]);
@@ -31,6 +31,6 @@
 		}
 	}
 
-
+	$conn->close();
 
 ?>

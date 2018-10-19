@@ -1,6 +1,6 @@
 <?php
 	
-	require('connection.php');
+	require_once('connection.php');
 	
 	$usernames = '';
 	$passwords = '';
@@ -43,5 +43,8 @@
 		}
 	}
 	echo "<script>alert ('是不是沒有帳號捏~~'); location.href ='register.php';</script>";
+
+	$conn->close();
+
 ?>
 

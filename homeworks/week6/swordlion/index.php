@@ -80,8 +80,6 @@
 			<hr>
 			<div id="showbox"></div>
 		</div>
-
-
 	</body>
 
 </html>
