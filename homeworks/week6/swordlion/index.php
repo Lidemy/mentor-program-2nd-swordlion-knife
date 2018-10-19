@@ -26,7 +26,7 @@
 		<script type="text/javascript" src="script.js"></script>
 	</head>
 
-	<body>
+	<body onload="ShowTime()">
 		<button class="btn btn-dark logout"><a href="logout.php">登出</a></button>
 		<div class="pic2"></div>
 		<div class="container">
@@ -77,8 +77,9 @@
 			<?php
 				require('comment.php');
 			?>
+			<hr>
+			<div id="showbox"></div>
 		</div>
-				</div>
 
 
 	</body>
