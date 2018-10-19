@@ -16,21 +16,33 @@
 使用stmt來bind所有要輸入進資料庫的字串參數!
 
 $stmt = $conn->prepare("SQL") 後面輸入參數的地方使用? 例如: username = ?
+
 $stmt->bind_param("幾個參數",要引入的參數數值)
+
 $stmt->execute();  最後在這裡執行
 
 #### 例子
 
 某個網站的登入驗證的SQL查詢代碼為
-<source lang="sql">strSQL = "SELECT * FROM users WHERE (name = '" + userName + "') and (pw = '"+ passWord +"');"</source>
+
+strSQL = "SELECT * FROM users WHERE (name = '" + userName + "') and (pw = '"+ passWord +"');"
+
 惡意填入
-<source lang="sql">userName = "1' OR '1'='1";</source>
+
+userName = "1' OR '1'='1";
+
 與
-<source lang="sql">passWord = "1' OR '1'='1";</source>
+
+passWord = "1' OR '1'='1";
+
 時，將導致原本的SQL字串被填為
-<source lang="sql">strSQL = "SELECT * FROM users WHERE (name = '1' OR '1'='1') and (pw = '1' OR '1'='1');"</source>
+
+strSQL = "SELECT * FROM users WHERE (name = '1' OR '1'='1') and (pw = '1' OR '1'='1');"
+
 也就是實際上运行的SQL命令會變成下面這樣的
-<source lang="sql">strSQL = "SELECT * FROM users;"</source>
+
+strSQL = "SELECT * FROM users;"
+
 因此達到無帳號密碼，亦可登入網站。所以SQL隱碼攻擊被俗稱為駭客的填空遊戲。
 
 
@@ -50,9 +62,6 @@ XSS攻擊通常指的是通過利用網頁開發時留下的漏洞，通過巧�
 * <code><script>alert (vulnerable)</script></code>
 * <code>%3Cscript%3Ealert('XSS')%3C/script%3E</code>
 * <code><script>alert('XSS')</script></code>
-* <code><img src="javascript:alert('XSS')"></code>
-* <code><nowiki><img src="http://xxx.com/yyy.png" onerror="alert('XSS')"></nowiki></code>
-* <code><nowiki><div style="height:expression(alert('XSS'),1)"></div></nowiki></code>（這個僅於IE7(含)之前有效）
 
 ### 防範方法 
 
@@ -92,7 +101,7 @@ Node.js 的 node-validator
 
 假如一家銀行用以執行轉帳操作的URL位址如下：	<code> http://www.examplebank.com/withdraw?account=AccoutName&amount=1000&for=PayeeName </code>
 
-那麼，一個惡意攻擊者可以在另一個網站上放置如下程式碼： <code><img src="http://www.examplebank.com/withdraw?account=Alice&amount=1000&for=Badman"></code>>
+那麼，一個惡意攻擊者可以在另一個網站上放置如下程式碼： <code><img src="http://www.examplebank.com/withdraw?account=Alice&amount=1000&for=Badman"></img></code>
 
 如果有帳戶名為Alice的用戶存取了惡意站點，而她之前剛存取過銀行不久，登入資訊尚未過期，那麼她就會損失1000資金。
 
