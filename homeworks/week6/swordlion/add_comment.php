@@ -1,6 +1,6 @@
 <?php
-	require('connection.php');
 
+	require_once('connection.php');
 
 	$stmt = $conn->prepare("SELECT * from swordlion_knife_users_certificate LEFT JOIN swordlion_knife_users on swordlion_knife_users_certificate.username = swordlion_knife_users.username WHERE certificate = ? ");
 	$stmt->bind_param("s", $_COOKIE["member_id"]);
@@ -77,5 +77,7 @@
 	} else {
 		echo "<script>alert ('你是不是有什麼沒打R~'); location.href ='index.php';</script>";
 	}
+
+	$conn->close();
 	
 ?>

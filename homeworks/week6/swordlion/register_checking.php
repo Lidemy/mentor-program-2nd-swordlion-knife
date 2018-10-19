@@ -1,6 +1,6 @@
 <?php
 	require('randomcertificateid.php');
-	require('connection.php');
+	require_once('connection.php');
 
 	$usernames = '';
 	$passwords = '';
@@ -57,6 +57,9 @@
 			}
 
 	}
+	
 	echo "<script>alert ('是不是有帳號了捏~~');location.href ='login.php';</script>";
+
 	$conn->close();
+
 ?>
