@@ -1,11 +1,12 @@
 body { 
-	font-family:微軟正黑體;
 	background-color: white;
+	word-wrap:break-word;
 }
 #showbox {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 100px;
+	margin-top: 50px;
 }
 .container {
 	max-width:700px;
@@ -40,7 +41,12 @@ body {
 	color:white;
 }
 .navBar {
+	box-shadow: 1px 1px 2px 3px #888888;
 	justify-content: center;
+	margin-top: 10px;
+	border-width: 2px;
+    border-style: solid;
+    border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
 }
 .navBar__title {
 	font-size: 35px;
@@ -54,6 +60,9 @@ body {
 	box-shadow: 1px 1px 2px 3px #888888;
 	margin-top: 20px; 
 	background: white;
+	border-width: 2px;
+    border-style: solid;
+    border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
 }
 .comment__form {
 	font-size:25px;
@@ -63,9 +72,8 @@ body {
 }
 .inputarea {
 	margin-top:15px; 
-	margin-right:14%;
-	border:none;
-	border-bottom: 0.5px solid gray;
+	margin-right:27%;
+	border-bottom: 2px solid gray;
 	outline: none;
 	font-size:25px;
 }
@@ -77,16 +85,15 @@ body {
 .button__2 {
 	margin:15px;
 	padding:10px 30px; 
-	border-radius: 10px;
-	background: black;
-	color:white;
 	font-size: 16px;
 	width:190px;
 	left:-10px;
 }
 .button__2 > a {
 	text-decoration:none;
-	color:white;
+}
+..button__2 > a:hover {
+	color:;
 }
 input:hover {
 	cursor:pointer;
@@ -99,11 +106,9 @@ input:hover {
 	outline: none;
 	border-color:black;
 	font-size: 18px;
-	border-radius: 10px;
 }
 .createcomment {
 	margin-top: 10px;
-	border-radius: 10px;
 	background-color: black;
 }
 .logout {
@@ -112,9 +117,7 @@ input:hover {
 	right:0px;
 	margin-top:30px;
 	padding:8px 2px;
-	background: black;
 	color:white;
-	border-radius: 10px;
 }
 .logout > a {
 	text-decoration: none;
@@ -143,13 +146,13 @@ input:hover {
 .comment__form__icon__userinformation {
 	display: flex;
 	flex-wrap:wrap;
-	flex-basis: 32%;
+	flex-basis: 25%;
 	align-items: center;
 	margin-left: 10px;
 	font-size: 20px;
 }
 .addedcomment {
-	flex-basis: 165px;
+	flex-basis: 145px;
 }
 .comment_content {
 	padding: 10px;
@@ -171,6 +174,9 @@ input:hover {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
+}
+.wrapping2 {
+	text-align: right;
 }
 .wrapping > .comment__form__textarea {
 	height: 100px;
@@ -206,18 +212,24 @@ input:hover {
 }
 @media screen and (max-width: 700px) {
 	.comment-display {
-		margin: 20px 20px;
+		margin: 20px;
 	}
 	.comment__form__icon__userinformation {
 		flex-basis: 140px;
+	}
+	.wrapping2 {
+		text-align: left;
 	}
 	.button__2 {
 		display: flex;
 		justify-content: center;
 		margin-left:10px; 
 	}
+	.navBar {
+		margin: 20px;
+	}
 	.navBar__title {
-		font-size: 18px;
+		font-size: 15px;
 	}
 	.comment__form {
 		text-align: left;
@@ -225,8 +237,8 @@ input:hover {
 	}
 	.inputarea {
 		margin: 0px;
-		margin-top: 10px;
-		margin-bottom: 10px;
+		margin-top: 16px;
+		margin-bottom: 15px;
 		width:90%;
 	}
 	.buttoncenter {

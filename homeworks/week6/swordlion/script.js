@@ -17,7 +17,16 @@ $(document).ready(() => {
 
 		}
 	})
+
+	$(".buttoncenter").click(e => {
+		if(e.target.innerText == "還沒有帳號嗎QQ") {
+			window.location="register.php";
+		} else if(e.target.innerText == "我已經有帳號了!") {
+			window.location="login.php";
+		}
+	})
 })
+
 ShowTime = () => {
 　	var Today = new Date();
 	document.getElementById('showbox').innerHTML = Today.getFullYear() + " 年 " + (Today.getMonth()+1) + " 月 " + Today.getDate() + " 日 , 今天開始加油吧😊";

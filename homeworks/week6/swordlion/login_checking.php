@@ -42,7 +42,7 @@
 			echo "<script>alert ('是不是沒有帳號捏~~'); location.href ='register.php';</script>";
 		}
 	}
-	echo "<script>alert ('是不是沒有帳號捏~~'); location.href ='register.php';</script>";
+	echo "<script>alert ('這一定是哪裡出了問題!晚點再試一次吧!~~'); location.href ='login.php';</script>";
 
 	$conn->close();
 
