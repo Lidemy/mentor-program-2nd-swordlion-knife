@@ -110,6 +110,7 @@ input:hover {
 .createcomment {
 	margin-top: 10px;
 	background-color: black;
+	margin-left: 5px;
 }
 .logout {
 	position: absolute;
@@ -172,8 +173,8 @@ input:hover {
 }
 .wrapping {
 	display: flex;
-	justify-content: space-between;
 	align-items: flex-end;
+	flex-wrap:wrap;
 }
 .wrapping2 {
 	text-align: right;
