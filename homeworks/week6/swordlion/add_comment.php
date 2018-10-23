@@ -35,13 +35,15 @@
 				if ($insure->num_rows >0) {
 					$data = $insure->fetch_assoc();
 					$time = $data["created_at"];
+					$num = $data["num"];
 				}
 
-				echo "<script>alert ('小劍獅留言成功!'); location.href ='index.php';</script>";
-				// $arr = array('result'=>'success','userid'=>$user_id,"username"=>$username,"time"=>$time);
-				// echo json_encode($arr);
+				// echo "<script>alert ('小劍獅留言成功!');location.replace(document.referrer);</script>";
+				// json_encode -> ajax
+				$arr = array('result'=>'success','userid'=>$user_id,"username"=>$username,"time"=>$time,"num"=>$num);
+				 echo json_encode($arr);
 			} else {
-				echo "<script>alert ('一定是哪裡搞錯了QQ'); location.href ='index.php';</script>";
+				echo "<script>alert ('一定是哪裡搞錯了QQ'); location.replace(document.referrer);</script>";
 			}
 
 	    }
@@ -64,18 +66,19 @@
 				if ($insure->num_rows >0) {
 					$data = $insure->fetch_assoc();
 					$time = $data["created_at"];
+					$num = $data["major"];
 				}
-				echo "<script>alert ('小劍獅回覆成功!'); location.href ='index.php';</script>";
-				// $arr = array('result'=>'success2',"userid"=>$data2["id"],'username'=>$username,'time'=>$time2);
-				// echo json_encode($arr);
+				// echo "<script>alert ('小劍獅回覆成功!'); location.replace(document.referrer);</script>";
+				$arr = array('result'=>'success2',"userid"=>$data["id"],'username'=>$username,'time'=>$time,"num"=>$num);
+				echo json_encode($arr);
 			} else {
-				echo "<script>alert ('一定是哪裡搞錯了QQ'); location.href ='index.php';</script>";
+				echo "<script>alert ('一定是哪裡搞錯了QQ');location.replace(document.referrer);</script>";
 			}
 	    }
 	} else if (!isset($_COOKIE["member_id"])) {
 		echo "<script>alert ('小劍獅太多啦!先登入吧~~'); location.href ='login.php';</script>";
 	} else {
-		echo "<script>alert ('你是不是有什麼沒打R~'); location.href ='index.php';</script>";
+		echo "<script>alert ('你是不是有什麼沒打R~'); location.replace(document.referrer);</script>";
 	}
 
 	$conn->close();

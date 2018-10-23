@@ -1,6 +1,13 @@
-<div class='container'>
+<div class='container main'>
 	<?php
-		$stmt = $conn->prepare("SELECT * FROM swordlion_knife_users LEFT JOIN swordlion_knife_comments ON swordlion_knife_comments.user_id = swordlion_knife_users.id WHERE major = 0 ORDER BY created_at DESC");
+		$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+		$pagenumcal = explode('page=',$actual_link);
+		if(!$_SERVER['QUERY_STRING']) {
+			$pagenum = 0;
+		} else {
+			$pagenum = ($pagenumcal[1]-1)*4;
+		}
+		$stmt = $conn->prepare("SELECT * FROM swordlion_knife_users LEFT JOIN swordlion_knife_comments ON swordlion_knife_comments.user_id = swordlion_knife_users.id WHERE major = 0 ORDER BY created_at DESC LIMIT ".$pagenum.",4");
 		$stmt->execute();
 		$insure = $stmt->get_result(); 
 		if ($insure->num_rows > 0) {
@@ -126,7 +133,22 @@
 	<?php
 		}
 	}
-	$conn->close();
 	?>
 </div>
+<ul class="pageContainer">
+	<li class="previous"><img class='previous__img' src='previous.jpg'/></li>
+	<?php
+
+		$stmt3 = $conn->prepare("SELECT COUNT(*) AS count FROM swordlion_knife_comments WHERE major = 0");
+		$stmt3->execute();
+		$exe = $stmt3->get_result();
+		$exe1 = $exe->fetch_assoc();
+		$count = $exe1["count"];
+		$pagecount = ceil($count/4);
+		for($i = 1; $i <= $pagecount; $i++) {
+			echo '<li class="page">'.$i.'</li>';
+		}
+	?>
+	<li class='next'><img class='next__img' src='next.jpg'/></li>
+</ul>
 
