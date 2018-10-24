@@ -14,10 +14,10 @@
 			$stmt1->execute();
 			if($stmt1){
 				setcookie("temporary",'', time()+3600*24);
-				echo "<script>alert('成功刪除啦~~!!');location.replace(document.referrer);</script>";
+				echo "<script>alert('成功刪除啦~~!!');</script>";
 			} else {
 				setcookie("temporary",'', time()+3600*24);
-				echo "<script>alert('好像哪裡出了問題QQ~~');location.replace(document.referrer);</script>";
+				echo "<script>alert('好像哪裡出了問題QQ~~');</script>";
 			}
 		} else {
 			$stmt2 = $conn->prepare("DELETE FROM swordlion_knife_comments WHERE num = ? OR major = ? ");
@@ -25,15 +25,15 @@
 			$stmt2->execute();
 			if($stmt2) {
 				setcookie("temporary",'', time()+3600*24);
-				echo "<script>alert('成功刪除啦~~!!');location.replace(document.referrer);</script>";
+				echo "<script>alert('成功刪除啦~~!!');</script>";
 			} else {
 				setcookie("temporary",'', time()+3600*24);
-				echo "<script>alert('好像哪裡出了問題QQ~~');location.replace(document.referrer);</script>";
+				echo "<script>alert('好像哪裡出了問題QQ~~');</script>";
 			}
 		}
 	} 
 
-	echo "<script>alert('好像哪裡出了問題QQ~~');location.replace(document.referrer);</script>";
+	echo "<script>alert('好像哪裡出了問題QQ~~');</script>";
 	
 	$conn->close();
 

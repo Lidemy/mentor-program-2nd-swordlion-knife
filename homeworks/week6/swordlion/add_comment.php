@@ -66,10 +66,11 @@
 				if ($insure->num_rows >0) {
 					$data = $insure->fetch_assoc();
 					$time = $data["created_at"];
-					$num = $data["major"];
+					$major2 = $data["major"];
+					$num = $data["num"];
 				}
 				// echo "<script>alert ('小劍獅回覆成功!'); location.replace(document.referrer);</script>";
-				$arr = array('result'=>'success2',"userid"=>$data["id"],'username'=>$username,'time'=>$time,"num"=>$num);
+				$arr = array('result'=>'success2',"userid"=>$data["id"],'username'=>$username,'time'=>$time,'major'=>$major2,"num"=>$num);
 				echo json_encode($arr);
 			} else {
 				echo "<script>alert ('一定是哪裡搞錯了QQ');location.replace(document.referrer);</script>";

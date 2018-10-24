@@ -1,6 +1,5 @@
-$controller = 0;
-$controller2 = 0;
 $(document).ready(() => {
+	/* 舊的編輯刪除功能 -> ajax.js 想辦法用ajax呈現
 	$(document).on('click',".dropdown-menu", e => {
 		// 不知道為啥 編輯過後 總會少一個元素
 		if(e.target.className == "dropdown-item editing" && !$controller == 1) {
@@ -57,7 +56,7 @@ $(document).ready(() => {
 				window.location.href='delete.php';
 			}
 		}
-	})
+	}) */
 	// 案過取消後元素會消失的情形
 	$(document).on('click','.createcomment', e => {
 		if(e.target.innerText == "取消") {

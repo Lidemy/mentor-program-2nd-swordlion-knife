@@ -1,5 +1,5 @@
 $(document).ready(() => {
-	$(document).on("submit","form", e => {
+	$(document).on("submit",".comment__form", e => {
 		e.preventDefault();
 		var content = $(e.target).find('textarea[name=content]').val();
 		var major = $(e.target).find('input[name=major]').val();
@@ -54,7 +54,7 @@ $(document).ready(() => {
 				}
 				if(res.result === 'success2') {
 					$('.comment__form.adding').find('input[name=major]').each( function() {
-						if($(this).val() == res.num) {
+						if($(this).val() == res.major) {
 							if($(this).parent().parent().find('div').hasClass('sub_comment')) {
 								$(this).parent().parent().children().eq(1).before(`
 									<div class='sub_comment adding'>
