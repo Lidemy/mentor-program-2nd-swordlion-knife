@@ -1,9 +1,32 @@
 $(document).ready(() => {
+	$(document).on("submit",".wrapping",e => {
+		e.preventDefault();
+		var content = $(e.target).find('textarea[name=content]').val();
+		var num = $(e.target).find('input[name=num]').val();
+		var helper = $(e.target).find('input[name=helper]').val();
+		
+		$.ajax ({
+			type: 'POST',
+			url: 'editing.php',
+			data: {
+				content: content,
+				helper: helper,
+				num: num
+			},
+			success: () => {
+				$(e.target).parent().append(`
+					<input type='hidden' name='num' value='${num}' />
+					<div class="comment_content">${content}</div>
+					`)
+				$(e.target).remove();
+			}
+		})
+	})
 	$(document).on("submit",".comment__form", e => {
 		e.preventDefault();
 		var content = $(e.target).find('textarea[name=content]').val();
 		var major = $(e.target).find('input[name=major]').val();
-		
+		$(e.target).parent().find('textarea[name=content]').val('');
 		$.ajax ({
 			type: 'POST',
 			url: 'add_comment.php',

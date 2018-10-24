@@ -15,9 +15,9 @@
 		$stmt->execute();
 		
 		if($stmt) {
-			echo "<script>alert ('恭喜你!修改成功~~'); location.replace(document.referrer);</script>";
+			echo "<script>alert ('恭喜你!修改成功~~');</script>";
 		} else {
-			echo "<script>alert ('失敗了耶!一定是哪裡搞錯了~~'); location.replace(document.referrer);</script>";
+			echo "<script>alert ('失敗了耶!一定是哪裡搞錯了~~');</script>";
 		}
 	}
 
