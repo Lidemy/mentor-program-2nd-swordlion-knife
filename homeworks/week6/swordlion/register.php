@@ -18,7 +18,7 @@
 		<div class="pic2"></div>
 		<div class="container">
 			<div class="pic">
-				<img src="pic.png" class="pic__inside"/>
+				<img src="pic.gif" class="pic__inside"/>
 			</div>
 			<div class="navBar">
 				<h class="navBar__title">いらっしゃいませ！歡迎光臨~★★★</h>

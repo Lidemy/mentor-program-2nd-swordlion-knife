@@ -1,4 +1,5 @@
 <?php
+	
 	require('connection.php');
 	
 	$is_login = false;
@@ -18,13 +19,15 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 		<title>劍獅的留言小天地</title>
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<iframe src="1.mp3" allow="autoplay" style="display:none"></iframe>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="style.css"/>
-		<script type="text/javascript" src="script.js"></script>
+		<script method="jquery" src="ajax.js"></script>
 	</head>
 
 	<body onload="ShowTime()">
@@ -38,7 +41,7 @@
 		<div class="pic2"></div>
 		<div class="container">
 			<div class="pic">
-				<img src="pic.png" class="pic__inside"/>
+				<img src="pic.gif" class="pic__inside"/>
 			</div>
 			<div class="navBar">
 				<h class="navBar__title">劍獅的小小留言板</h>

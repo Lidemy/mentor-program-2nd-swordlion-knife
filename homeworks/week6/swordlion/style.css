@@ -1,5 +1,5 @@
 body { 
-	background-color: white;
+	background-color: #ffcf41;
 	word-wrap:break-word;
 }
 #showbox {
@@ -11,8 +11,11 @@ body {
 .container {
 	max-width:700px;
 	margin: 0px auto;
-	margin-bottom: 100px; 
+	margin-bottom: 80px; 
 	padding:0px; 
+}
+.previous__img , .next__img {
+	width:60%;
 }
 .pic {
 	max-width: 547px;
@@ -23,7 +26,7 @@ body {
 	max-width: 100%;
 }
 .pic2 {
-	background-image: url("swordlion.jpg");
+	background-image: url("swordlion.gif");
 	background-size:contain;
 	position: fixed;
 	top:60px;
@@ -41,6 +44,7 @@ body {
 	color:white;
 }
 .navBar {
+	background-color: burlywood;
 	box-shadow: 1px 1px 2px 3px #888888;
 	justify-content: center;
 	margin-top: 10px;
@@ -147,13 +151,13 @@ input:hover {
 .comment__form__icon__userinformation {
 	display: flex;
 	flex-wrap:wrap;
-	flex-basis: 25%;
+	flex-basis: 16%;
 	align-items: center;
 	margin-left: 10px;
 	font-size: 20px;
 }
 .addedcomment {
-	flex-basis: 145px;
+	flex-basis: 115px;
 }
 .comment_content {
 	padding: 10px;
@@ -211,12 +215,31 @@ input:hover {
 .dropdown-menu.show {
 	transform: translate3d(224px, 33px, 0px);
 }
+.pageContainer {
+	padding:0px; 
+	display: flex;
+	justify-content: center;
+	list-style: none;
+}
+.page:hover {
+	cursor:pointer;
+}
+.previous:hover, .next:hover {
+	cursor:pointer;
+}
+li {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	width:10%;
+	font-size:20px;
+}
 @media screen and (max-width: 700px) {
 	.comment-display {
 		margin: 20px;
 	}
 	.comment__form__icon__userinformation {
-		flex-basis: 140px;
+		flex-basis: 115px;
 	}
 	.wrapping2 {
 		text-align: left;
