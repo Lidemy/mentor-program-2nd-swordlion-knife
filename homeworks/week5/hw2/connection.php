@@ -1,9 +1,9 @@
 <?php
 
-	$servername = "mentor-program.co";
-    $username = "student2nd";
-    $password = "mentorstudent123";
-    $dbname = "mentor_program_db";
+    $servername = "";
+    $username = "";
+    $password = "";
+    $dbname = "";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
     mysqli_set_charset($conn , "UTF8");
