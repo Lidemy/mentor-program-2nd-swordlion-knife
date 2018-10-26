@@ -1,3 +1,6 @@
 node_modules/
 connection.php
 swordlion.pem
+.bash_logout
+.bashrc
+.profile
