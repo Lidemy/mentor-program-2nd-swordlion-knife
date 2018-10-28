@@ -40,7 +40,7 @@ body {
 	background-image: url("picture/swordlion.gif");
 	background-size:contain;
 	position: fixed;
-	top:60px;
+	top:140px;
 	right:0px;
 	opacity: 0.8;
 	height: 227px;
@@ -48,6 +48,9 @@ body {
 }
 .comment-display__login {
 	text-align: center;
+}
+.comment-display__login:hover {
+	background-color: #ea2b2b;
 }
 .comment-display__login > a {
 	font-size:20px;
@@ -129,9 +132,8 @@ input:hover {
 }
 .logout {
 	position: absolute;
-	top:-21px;
+	top:70px;
 	right:0px;
-	margin-top:30px;
 	padding:8px 2px;
 	color:white;
 }
