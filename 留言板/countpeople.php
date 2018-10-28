@@ -6,7 +6,7 @@
 
 	if($_SESSION['come'] !== "v") {
 		$num ++;
-		$file = fopen("countpeople.txt","r");
+		$file = fopen("countpeople.txt","w");
 		fwrite($file, $num);
 		fclose($file);
 		$_SESSION['come'] = "v";
