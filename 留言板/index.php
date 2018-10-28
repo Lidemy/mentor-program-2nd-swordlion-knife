@@ -32,6 +32,18 @@
 	</head>
 
 	<body onload="ShowTime()">
+		<div class='peoplenum'>
+			<?php
+				require("countpeople.php");
+				$string = strlen($num);
+				echo "你是第 ";
+				for($i = 0;$i < $string; $i++) {
+					$n = substr($num,$i,1);
+					echo "<img class='countpeople' src=countpeople/Sketch00$n.gif />";
+				}
+				echo " 位到來的小劍獅";;
+			?>
+		</div>
 		<?php 
 			if($is_login) {
 		?>
