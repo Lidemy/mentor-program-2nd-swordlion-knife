@@ -302,6 +302,9 @@ li {
 	.container {
 		max-width: 500px;
 	}
+	.toblog {
+		top:12%;
+	}
 }
 @media screen and (max-width: 450px) {
 	.edit {

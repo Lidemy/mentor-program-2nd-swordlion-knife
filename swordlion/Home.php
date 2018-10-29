@@ -21,10 +21,10 @@
 
 	<body onload='ShowTime()'>
 		<div class="pic2">
-			<img src="/swordlion/commentboard/picture/swordlion.gif" class="pic__inside"/>
+			<img src="commentboard/picture/swordlion.gif" class="pic__inside"/>
 		</div>
 		<div class="pic">
-			<img src="/swordlion/commentboard/picture/pic.gif" class="pic__inside"/>
+			<img src="commentboard/picture/pic.gif" class="pic__inside"/>
 		</div>
 		<div class='transform'>
 			<div class='a'><a href='commentboard/index.php'>留言板</a></div>
