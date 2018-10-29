@@ -1,5 +1,4 @@
 <?php
-	
 	require('connection.php');
 	
 	$is_login = false;
@@ -34,7 +33,7 @@
 	<body onload="ShowTime()">
 		<div class='peoplenum'>
 			<?php
-				require("countpeople.php");
+				require("../countpeople.php");
 				$string = strlen($num);
 				echo "你是第 ";
 				for($i = 0;$i < $string; $i++) {
@@ -51,6 +50,7 @@
 		<?php
 			}
 		?>
+		<div class="toblog"><a class="toblog__a" href='../blog/index.php'>點我去劍獅的部落格!</a></div>
 		<div class="pic2"></div>
 		<div class="container">
 			<div class="pic">
