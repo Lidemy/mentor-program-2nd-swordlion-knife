@@ -47,7 +47,7 @@
 				echo " 位到來的小劍獅";;
 			?>
 		</div>
-		<div class="tocommentboard"><a class="tocommentboard__a" href='/swordlion/index.php'>點我去劍獅的留言板!</a></div>
+		<div class="tocommentboard"><a class="tocommentboard__a" href='../commentboard/index.php'>點我去劍獅的留言板!</a></div>
 		<div class="pic2"></div>
 		<div class="container">
 			<div class="pic">
