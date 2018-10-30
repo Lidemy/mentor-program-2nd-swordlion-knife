@@ -46,13 +46,13 @@
 		<?php 
 			if($is_login) {
 		?>
-		<button class="btn btn-primary logout"><a href="logout.php">登出</a></button>
+		<button class="btn btn-primary logout">登出</button>
 		<?php
 			}
 		?>
-		<div class="toblog"><a class="toblog__a" href='../blog/index.php'>點我去劍獅的部落格!</a></div>
 		<div class="pic2"></div>
 		<div class="container">
+			<div class="toblog"><a class="toblog__a" href='../blog/blog.php'>點我去劍獅的部落格!</a></div>
 			<div class="pic">
 				<img src="picture/pic.gif" class="pic__inside"/>
 			</div>
