@@ -68,6 +68,11 @@ $(document).ready(() => {
 		}
 	}) */
 	// 登入註冊導向
+	$(".logout").click( e => {
+		document.cookie="member_id=;";
+		document.cookie="member_nickname=;";
+		window.location.reload();
+	})
 	$(".buttoncenter").click(e => {
 		if(e.target.innerText == "還沒有帳號嗎QQ") {
 			window.location="register.php";

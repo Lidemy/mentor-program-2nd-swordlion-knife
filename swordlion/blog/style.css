@@ -3,8 +3,7 @@ body {
 	word-wrap:break-word;
 }
 .tocommentboard {
-	position: absolute;
-	top:8%;
+	margin-top:8%;
 	width:100%;
 }
 .tocommentboard__a {
@@ -30,17 +29,19 @@ body {
 #showbox {
 	display: flex;
 	justify-content: center;
+	width:100%;
 	margin-bottom: 100px;
 	margin-top: 50px;
 }
 .container {
-	max-width:700px;
+	max-width:800px;
 	margin: 0px auto;
 	padding:0px; 
 }
 .pic {
 	max-width: 547px;
 	margin: 0px auto;
+	margin-top:-60px;
 }
 .pic__inside {
 	margin-top: 50px; 
@@ -68,9 +69,256 @@ body {
 	display: flex;
 	justify-content: center;
 }
+.pagecontainer {
+	display: flex;
+	margin-top: 30px;
+	flex-wrap: wrap;
+}
+.subcomment-list , .leavecomment-area {
+	padding:30px;
+}
+.article , .leavecomment-area , .subcomment-list {
+	width:100%;
+	border:1px solid;
+	border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
+	box-shadow: 1px 1px 2px 3px #888888;
+	background: white;
+	margin-bottom: 30px;
+}
+.article__area {
+	padding:30px;
+}
+.personal {
+	padding: 30px 20px;
+    border: 1px solid;
+    border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
+    box-shadow: 1px 1px 2px 3px #888888;
+    background: white;
+    width: 12%;
+    position: fixed;
+    display: flex;
+    right: 260px;
+    top: 160px;
+}
+.login {
+	display: flex;
+	justify-content: center;
+	font-size: 23px;
+	flex-wrap: wrap;
+}
+.logout {
+	position: absolute;
+	right:20px;
+	top:45px;
+}
+.continue {
+	color:blue;
+	margin-left: 10px;
+}
+.create__article {
+	margin-left: 15px;
+	margin-top:30px;
+}
+.back {
+	display: none;
+	margin-left: 15px;
+	margin-top: 30px;
+}
+.create__article__form {
+	display: none;
+	background: white;
+    width: 100%;
+    border: 1px solid;
+    padding: 40px;
+    box-shadow: 1px 1px 2px 3px #888888;
+    margin-top: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
+}
+.create__subcomment__form {
+	display: block;
+    margin-top: 30px;
+}
+.leavecomment-area__textarea {
+	padding: 30px 20px;
+    margin-top: 15px;
+    width: 95%;
+    height: 200px;
+    resize: none;
+    border-width: 2px;
+    border-style: solid;
+    outline: none;
+}
+.article-list {
+	width:100%;
+}
+.article__content {
+	padding:30px 20px;
+	margin-top:15px;
+	width:95%;
+	height:500px;
+	resize:none;
+	border-width: 2px;
+    border-style: solid;
+    outline: none;
+}
+.article__title {
+	padding:10px 20px;
+	margin-top: 30px;
+	width:95%;
+}
+.pagecontainer__title {
+	width:100%;
+}
+.loginbeforArticle {
+	margin-top:30px;
+}
+.loginbeforArticle > a {
+	color:white;
+	text-decoration:none;
+}
+.create__article__form__submit {
+	margin-top:30px;
+	margin-left: 10px;
+}
+.dropdown {
+	margin-top: 20px;
+}
+.dropdown-menu.show {
+	display: flex;
+    flex-wrap: wrap;
+    padding:30px;
+}
+.dropdown-menu__emoji {
+	font-size: 25px;
+	width:30px;
+	margin:5px;
+}
+h {
+	font-size:30px;
+}
+p {
+	margin-left: 10px;
+	margin-top:10px;
+	font-size: 20px;
+}
+.login__notlogin  {
+	width: 50%;
+    height: 14%;
+    border: 1px solid;
+    border-radius: 200%;
+    margin-top: 20px;
+}
+.personal__userinformation {
+	display: flex;
+}
+.description , .personal__userinformation__username {
+	margin-top:20px;
+}
+.personal__userinformation__username {
+	margin-left:10px; 
+}
+.personal__icon {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.personal__icon__avatar {
+	width: 75%;
+    height: 14%;
+}
+.userdetail {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+}
+.userdetail__avatar {
+	width:48px;
+	height:48px;
+	margin-right: 20px;
+}
+/* 登入註冊畫面css */
+.comment-display {
+	padding: 12px;
+	box-sizing: border-box;
+	box-shadow: 1px 1px 2px 3px #888888;
+	margin-top: 20px; 
+	background: white;
+	border-width: 2px;
+    border-style: solid;
+    border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
+}
+.comment__form {
+	font-size:25px;
+	margin-bottom:0px;
+	width:100%;
+	text-align: right;
+}
+.inputarea {
+	margin-top:15px; 
+	margin-right:27%;
+	border-bottom: 2px solid gray;
+	outline: none;
+	font-size:25px;
+}
+.buttoncenter {
+	display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.button__2 {
+	margin:15px;
+	padding:10px 30px; 
+	font-size: 16px;
+	width:190px;
+	left:-10px;
+}
+.button__2 > a {
+	text-decoration:none;
+}
 @media screen and (max-width: 1098px) {
 	.pic2 {
 		display: none;
+	}
+	.personal {
+		display: none;
+	}
+	.article {
+		margin: 20px auto;
+	}
+	.comment-display {
+		margin: 20px;
+	}
+	.comment__form__icon__userinformation {
+		flex-basis: 107px;
+	}
+	.wrapping2 {
+		text-align: left;
+	}
+	.comment__form {
+		text-align: left;
+		font-size: 25px;
+	}
+	.inputarea {
+		margin: 0px;
+		margin-top: 16px;
+		margin-bottom: 15px;
+		width:90%;
+	}
+	.buttoncenter {
+		flex-wrap: wrap;
+		justify-content: flex-start;
+	}
+	.button__2 {
+		margin-left: 0px;
+	}
+	.pagecontainer {
+		margin:30px 10px;
+	}
+	.create__article , .loginbeforeArticle {
+		margin-left: 10px;
 	}
 }
 @media screen and (max-width: 700px) {

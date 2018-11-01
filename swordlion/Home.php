@@ -20,18 +20,20 @@
 	</head>
 
 	<body onload='ShowTime()'>
-		<div class="pic2">
-			<img src="/swordlion/commentboard/picture/swordlion.gif" class="pic__inside"/>
+		<div class='container'>
+			<div class="pic2">
+				<img src="commentboard/picture/swordlion.gif" class="pic__inside"/>
+			</div>
+			<div class="pic">
+				<img src="commentboard/picture/pic.gif" class="pic__inside"/>
+			</div>
+			<div class='transform'>
+				<div class='a'><a href='commentboard/index.php'>留言板</a></div>
+				<div class='a'><a href='blog/blog.php'>部落格</a></div>
+			</div>
+			<div class='info'>點擊進入↑</div>
+			<div id="showbox"></div>
 		</div>
-		<div class="pic">
-			<img src="/swordlion/commentboard/picture/pic.gif" class="pic__inside"/>
-		</div>
-		<div class='transform'>
-			<div class='a'><a href='commentboard/index.php'>留言板</a></div>
-			<div class='a'><a href='blog/index.php'>部落格</a></div>
-		</div>
-		<div class='info'>點擊進入↑</div>
-		<div id="showbox"></div>
 	</body>
 
 </html>
