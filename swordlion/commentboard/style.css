@@ -124,9 +124,6 @@ body {
 .button__2 > a {
 	text-decoration:none;
 }
-..button__2 > a:hover {
-	color:;
-}
 input:hover {
 	cursor:pointer;
 }
