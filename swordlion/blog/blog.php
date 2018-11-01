@@ -7,8 +7,13 @@
 
 	if (isset($_COOKIE["member_id"]) && !empty($_COOKIE["member_id"])) {
 		$is_login = true;
-    	$user_id = $_COOKIE["member_id"];
     	$user_nickname = $_COOKIE["member_nickname"];
+    	$stmt = $conn->prepare("SELECT * from swordlion_knife_users LEFT JOIN swordlion_knife_users_certificate ON swordlion_knife_users_certificate.username = swordlion_knife_users.username WHERE certificate = ?");
+		$stmt-> bind_param("s", $_COOKIE["member_id"]);
+		$stmt-> execute();
+		$find = $stmt->get_result();
+		$find1 = $find->fetch_assoc();
+		$user_id = $find1['id'];
     } 
 ?>
 
@@ -76,7 +81,7 @@
 					<div class="dropdown">
 						<button class="btn btn-dark dropdown-toggle createcomment" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">😄
 						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<div class="dropdown-menu main" aria-labelledby="dropdownMenuButton">
 						</div>
 					</div>
 					<textarea name='content' class='article__content' placeholder="文章輸入區域"></textarea>
@@ -91,55 +96,121 @@
 						$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						$pagenumcal = explode('article=',$actual_link);
 						if(!isset($pagenumcal[1])) {
+						// 沒有選定文章的話顯示全部文章縮減版
 							$stmt = $conn->prepare("SELECT * FROM swordlion_knife_users LEFT JOIN swordlion_knife_article ON swordlion_knife_users.id = swordlion_knife_article.user_id WHERE major = 0 ORDER BY created_at DESC");
 							$stmt->execute();
 							$catch = $stmt->get_result();
 							if($catch->num_rows > 0) {
 								while($catching = $catch->fetch_assoc()) {
+									$newcontent = '';
+									if(strlen($catching['content']) > 100 ) {
+										for($i = 0; $i < 100; $i++ ) {
+											$newcontent .= $catching['content'][$i];
+										}
+									}
+									$avatarid = $catching['id']%9;
 					?>
 							<div class='article'>
 				              <div class='article__area'>
 				                <div class='userdetail'>
-				                  <div><img src=avatar/<?php echo $catching['id'] % 9 ?>.png class='userdetail__avatar' /></div>
+				                  <div>
+				                  	<?php echo "<img src=avatar/".$avatarid.".png class='userdetail__avatar' />" ?>
+				                  </div>
 				                  <div class='userdetail__createrinfo'>
 				                    <div class='userdetail__creater'><?php echo $catching['nickname'] ?></div>
 				                    <div class='userdetail__created_at'><?php echo $catching['created_at'] ?></div>
 				                  </div>
 				                </div>
 				                <h><?php echo $catching['title'] ?></h>
-				                <p><?php echo $catching["content"] ?><a href=<?php echo $URL.'?article='.$catching['num'] ?> class='continue'>繼續閱讀...</a></p>
+				                <p><?php echo nl2br(htmlspecialchars($newcontent,ENT_QUOTES,'UTF-8')) ?><a href=<?php echo $URL.'?article='.$catching['num'] ?> class='continue'>繼續閱讀...</a></p>
 				              </div>
 				            </div>
 		            <?php
 		            			}
 							}
 						} else {
+						// 如果有選定文章的話顯示文章頁面
 							$pagenum = $pagenumcal[1];
 							$stmt = $conn->prepare("SELECT * FROM swordlion_knife_users LEFT JOIN swordlion_knife_article ON swordlion_knife_users.id = swordlion_knife_article.user_id  WHERE num = ?");
 							$stmt->bind_param('s',$pagenum);
 							$stmt->execute();
 							$catch = $stmt->get_result();
-							if($catch->num_rows > 0) {
-								$catching = $catch->fetch_assoc();
+							$catching = $catch->fetch_assoc();
+							$avatarid = $catching['id']%9;
 					?>
 							<div class='article'>
 				              <div class='article__area'>
 				                <div class='userdetail'>
-				                  <div><img src=avatar/<?php echo $catching['id'] % 9 ?>.png class='userdetail__avatar' /></div>
+				                  <div>
+				                  	<?php echo "<img src=avatar/".$avatarid.".png class='userdetail__avatar' />" ?>
+				                  </div>
 				                  <div class='userdetail__createrinfo'>
 				                    <div class='userdetail__creater'><?php echo $catching['nickname'] ?></div>
 				                    <div class='userdetail__created_at'><?php echo $catching['created_at'] ?></div>
 				                  </div>
 				                </div>
 				                <h><?php echo $catching['title'] ?></h>
-				                <p><?php echo $catching["content"] ?></p>
+				                <p><?php echo nl2br(htmlspecialchars($catching["content"],ENT_QUOTES,'UTF-8')) ?></p>
 				              </div>
 				            </div>
+				</div>
+				<div class='reminder navBar'>以下是留言!!</div>
+					<?php
+						// 先撰寫文章的副留言 最後在顯示留言欄 放上機器以後不知道為什麼這邊以下的東西都顯示不出來  頭好痛
+						$stmt1 = $conn->prepare("SELECT * FROM swordlion_knife_users LEFT JOIN swordlion_knife_subcomment ON swordlion_knife_users.id = swordlion_knife_subcomment.user_id WHERE major = ? ORDER BY created_at DESC");
+						$stmt1->bind_param('s',$pagenum);
+						$stmt1->execute();
+						$catch1 = $stmt1->get_result();
+						if($catch1->num_rows > 0) {
+					?>
+						<div class='subcomment-list'>
+					<?php
+							while($catching1 = $catch1->fetch_assoc()) {
+								$avatarid1 = $catching1['id']%9;
+					?>
+						<div class='comment-area__form'>
+		                	<div class='userdetail'>
+			                  <div>
+			                  	<?php echo "<img src=avatar/".$avatarid1.".png class='userdetail__avatar' />" ?>
+			                  </div>
+			                  <div class='userdetail__createrinfo'>
+			                    <div class='userdetail__creater'><?php echo $catching1['nickname'] ?></div>
+			                    <div class='userdetail__created_at'><?php echo $catching1['created_at'] ?></div>
+			                  </div>
+			                </div>
+			                <p><?php echo nl2br(htmlspecialchars($catching1["content"],ENT_QUOTES,'UTF-8')) ?></p>
+		                </div>
 					<?php
 							}
+					?>
+						</div>
+					<?php
 						}
-		            ?>
-				</div>
+					?>
+					<div class='leavecomment-area'>
+		                <form class='comment-area__form' method='POST' action='create__subcomment.php'>
+		                	<div class='userdetail'>
+			                  <div>
+			                  	<img src=avatar/<?php echo $user_id % 9 ?>.png class='userdetail__avatar' />
+			                  </div>
+			                  <div class='userdetail__createrinfo'>
+			                    <div class='userdetail__creater'><?php echo $user_nickname ?></div>
+			                  </div>
+			                </div>
+			                <div class="dropdown">
+								<button class="btn btn-dark dropdown-toggle createcomment" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">😄
+								</button>
+								<div class="dropdown-menu comment" aria-labelledby="dropdownMenuButton">
+								</div>
+							</div>
+							<textarea name='content' class='leavecomment-area__textarea' placeholder="有什麼想法想分享的嗎~"></textarea>
+							<input type='hidden' name='major' value=<?php echo $pagenum ?> />
+							<button type='submit' class='btn btn-primary create__subcomment__form'>發送留言!</button>
+		                </form>
+					</div>
+					<?php	
+						}
+					?>
 				<div class='personal'>
 					<?php
 					// 如果沒登入主留言欄會顯示登入

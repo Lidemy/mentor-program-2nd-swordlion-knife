@@ -29,6 +29,7 @@ body {
 #showbox {
 	display: flex;
 	justify-content: center;
+	width:100%;
 	margin-bottom: 100px;
 	margin-top: 50px;
 }
@@ -71,8 +72,12 @@ body {
 .pagecontainer {
 	display: flex;
 	margin-top: 30px;
+	flex-wrap: wrap;
 }
-.article {
+.subcomment-list , .leavecomment-area {
+	padding:30px;
+}
+.article , .leavecomment-area , .subcomment-list {
 	width:100%;
 	border:1px solid;
 	border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
@@ -130,6 +135,20 @@ body {
     border-width: 2px;
     border-style: solid;
     border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
+}
+.create__subcomment__form {
+	display: block;
+    margin-top: 30px;
+}
+.leavecomment-area__textarea {
+	padding: 30px 20px;
+    margin-top: 15px;
+    width: 95%;
+    height: 200px;
+    resize: none;
+    border-width: 2px;
+    border-style: solid;
+    outline: none;
 }
 .article-list {
 	width:100%;
