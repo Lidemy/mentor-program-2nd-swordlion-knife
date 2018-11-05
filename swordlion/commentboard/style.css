@@ -52,7 +52,15 @@ body {
 }
 .pic2 {
 	background-image: url("picture/swordlion.gif");
-	background-size:contain;
+	background-size:contain; 
+	/* 
+	這邊在想 background-size 的用法
+	我只是想把圖片縮小
+	但她縮小反而變很多張
+	又很難只縮圖片
+	之前去被是用 powerpoint 轉成 gif 檔
+	想知道有沒有更好的做法
+	 */
 	position: fixed;
 	top:140px;
 	right:0px;
