@@ -1,5 +1,5 @@
 <?php
-	
+	// 這是刪除資料的 PHP 拿去做 AJAX 了~
 	require_once('connection.php');
 	
 	$stmt = $conn->prepare("SELECT * FROM swordlion_knife_comments WHERE num = ?");

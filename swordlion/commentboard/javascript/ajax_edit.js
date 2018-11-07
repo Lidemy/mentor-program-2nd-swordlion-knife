@@ -1,13 +1,12 @@
-$controller = 1;
 $(document).ready(() => {
 	$(document).on('click',".dropdown-menu", e => {
-		// 編輯最後不AJAX 如果點了確認就還是換頁
+		// 編輯最後不AJAX 如果點了確認就還是換頁 結果我最後好像還是 AJAX 了
 		if($(e.target).hasClass("editing")) {
-			$controller = 0 ;
 			$targetarea = $(e.target).parent().parent().parent().parent();
-			$textareavalue = $targetarea.children().eq(2).text();
+			$textareavalue = $targetarea.children().eq(-1).text();
 			$comment_num = $targetarea.children().eq(1).val();
-			$targetarea.children().eq(2).remove();
+			$targetarea.children().eq(1).remove();
+			$targetarea.children().eq(1).remove();
 			$targetarea.append(`
 				<form method='POST' action='editing.php' class='wrapping'>
 					<textarea class='comment__form__textarea' name='content'>`+$textareavalue+`</textarea>
@@ -18,8 +17,8 @@ $(document).ready(() => {
 						<button type='button' class='btn btn-primary createcomment'>取消</button>
 					</div>
 				</form>`);
-			//刪除不換頁 直接AJAX出來
-		} else if ($(e.target).hasClass("deleting") && $controller == 1) {
+			//刪除不換頁 直接AJAX出來 
+		} else if ($(e.target).hasClass("deleting")) {
 			$targetarea = $(e.target).parent().parent().parent().parent();
 			$comment_num = $targetarea.children().eq(1).val();;
 			var r = confirm('確定要刪除嗎QQ?');
@@ -29,7 +28,7 @@ $(document).ready(() => {
 					type: 'POST',
 					url: 'delete.php',
 					success: () => {
-						if($targetarea.parent().hasClass('main-list')) {
+						if($targetarea.hasClass('main-list')) {
 							$targetarea.parent().remove();
 						} else {
 							$targetarea.remove();

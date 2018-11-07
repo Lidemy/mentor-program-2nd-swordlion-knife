@@ -1,5 +1,7 @@
 <?php
 	
+	// 編輯的 PHP ，通通拿去做 AJAX 了
+
 	require_once('connection.php');
 
 	if($_POST['content'] == $_POST['helper']) {
