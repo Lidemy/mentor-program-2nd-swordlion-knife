@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<script type="text/javascript" src='function.js'></script>
+	</head>
+	<style>
+		.textarea {
+			height:100px;
+			width:300px;
+			outline:none;
+			resize:none;
+			display: block;
+			font-size:25px;
+			padding:20px;
+		}
+		button {
+			display: inline;
+			padding:10px 15px;
+			margin-top:20px;
+		}
+		.output {
+			width:300px;
+			border:1px solid black;
+			margin-top:20px;
+			padding:20px;
+			font-size:15px;
+		}
+	</style>
+	<body>
+		<textarea class='textarea' placeholder='輸入數字並打開console.log'></textarea>
+		<button type='submit' class='stack_push'>stack.push</button>
+		<button type="submit" class='stack_pop'>stack.pop</button>
+		<button type='submit' class='queue_push'>queue.push</button>
+		<button type="submit" class='queue_pop'>queue.pop</button>
+		<div class='output'></div>
+	</body>
+</html>
