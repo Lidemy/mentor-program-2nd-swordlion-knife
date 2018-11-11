@@ -25,7 +25,7 @@ var stack = new Array();
 Stack = () => {
 	return {
 		push: (n) => {
-			stack.push(n);
+			stack[stack.length] = n;
 			console.log("stack = "+stack);
 		},
 		pop: () => {
@@ -40,7 +40,7 @@ var queue = new Array();
 Queue = () => {
 	return {
 		push: (n) => {
-			queue.push(n);
+			queue[queue.length] = n;
 			console.log("queue = "+ queue);
 		},
 		pop: (n) => {
