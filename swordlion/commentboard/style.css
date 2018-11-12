@@ -146,6 +146,7 @@ li {
 }
 .comment__form__logininfo {
   display: inline;
+  width:100%;
 }
 .comment__form__logininfo__inputarea {
   margin-top: 15px;

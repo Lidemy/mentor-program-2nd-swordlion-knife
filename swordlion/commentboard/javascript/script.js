@@ -73,6 +73,13 @@ $(document).ready(() => {
 		document.cookie="member_nickname=;";
 		window.location.reload();
 	})
+	$(".comment__form__button").click(e => {
+		if(e.target.innerText == "還沒有帳號嗎QQ") {
+			window.location="register.php";
+		} else if(e.target.innerText == "我已經有帳號了!") {
+			window.location="login.php";
+		}
+	})
 	// 網路頁面導向 (換頁功能)
 	var actual_link = location.href;
 	var pagenum = actual_link.split('page=')[1];
