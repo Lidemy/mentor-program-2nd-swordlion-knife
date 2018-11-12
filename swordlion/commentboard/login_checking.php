@@ -8,13 +8,9 @@
 	$check = 1 ;
 	// 這邊那時候也弄了好久 判斷帳號有沒有中文
 	for($i = 0; $i < strlen($_POST['usernames']); $i++ ) {
-		if($_POST['usernames'][$i] >= 'Z' || $_POST['usernames'][$i] <= 'A') {
-			if($_POST['usernames'][$i] >= 'z' || $_POST['usernames'][$i] <='a') {
-				if(!is_numeric($_POST['usernames'][$i])) {
-					$check = 0;
-					echo "<script>alert ('帳號只能打英文跟數字喔~~再試一次吧!');location.href ='login.php';</script>";
-				}
-			}
+		if(!ctype_alpha($_POST['usernames'][$i]) && !is_numeric($_POST['usernames'][$i])) {
+			$check = 0 ;
+			echo "<script>alert ('帳號只能有英文跟數字喔~~再試一次吧!');location.href ='register.php';</script>";
 		}
 	}	
 

@@ -6,9 +6,9 @@ $(document).ready(() => {
 			$controller = 1 ;
 			$controller2 = 1 ;
 			$targetarea = e.target.parentNode.parentNode.parentNode.parentNode;
-			$textareavalue = $targetarea.lastChild.changePageContainer__previousSibling.innerText;
-			$comment_num = $targetarea.lastChild.changePageContainer__previousSibling.changePageContainer__previousSibling.changePageContainer__previousSibling.value;
-			$targetarea.lastChild.changePageContainer__previousSibling.remove();
+			$textareavalue = $targetarea.lastChild.previousSibling.innerText;
+			$comment_num = $targetarea.lastChild.previousSibling.previousSibling.changePageContainer__previousSibling.value;
+			$targetarea.lastChild.previousSibling.remove();
 			$targetarea.innerHTML += (`
 				<form method='POST' action='editing.php' class='comment__sub__message'>
 					<textarea class='comment__form__textarea' name='content'>`+$textareavalue+`</textarea>
@@ -25,7 +25,7 @@ $(document).ready(() => {
 			$controller2 = 1 ;
 			$targetarea = e.target.parentNode.parentNode.parentNode.parentNode;
 			$textareavalue = $targetarea.lastChild.innerText;
-			$comment_num = $targetarea.lastChild.changePageContainer__previousSibling.changePageContainer__previousSibling.value;
+			$comment_num = $targetarea.lastChild.previousSibling.previousSibling.value;
 			$targetarea.lastChild.remove();
 			$targetarea.innerHTML += (`
 				<form method='POST' action='editing.php' class='comment__sub__message'>
@@ -49,7 +49,7 @@ $(document).ready(() => {
 			//刪除2
 		} else if (e.target.className == "dropdown-item deleting" && $controller2 == 2) {
 			$targetarea = e.target.parentNode.parentNode.parentNode.parentNode;
-			$comment_num = $targetarea.lastChild.changePageContainer__previousSibling.changePageContainer__previousSibling.value;
+			$comment_num = $targetarea.lastChild.previousSibling.previousSibling.value;
 			var r = confirm('確定要刪除嗎QQ?');
 			if(r) {
 				document.cookie= "temporary=" + $comment_num;
