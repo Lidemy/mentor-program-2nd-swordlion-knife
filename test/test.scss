@@ -176,13 +176,17 @@ li {
 	display: flex;
 	justify-content: center;
 	&__previous {
-		width:60%;
+		img {
+			width:$picwidth;
+		}
 		&:hover {
 			cursor:pointer;
 		}
 	}
 	&__next {
-		width:60%;
+		img {
+			width:$picwidth;
+		}
 		&:hover {
 			cursor:pointer;
 		}
@@ -226,7 +230,7 @@ li {
 		margin: 0px auto;
 		margin-top: 25px;
 		&__inside {
-			max-width:100%;
+			width:100%;
 		}
 	}
 	&__swordlion {
@@ -251,9 +255,6 @@ li {
 	justify-content: center;
 	margin-bottom: 100px;
 	margin-top: 50px;
-}
-.changePageContainer__previous__img , .changePageContainer__next__img {
-	width:60%;
 }
 
 @media screen and (max-width: 768px) {
