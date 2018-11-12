@@ -7,14 +7,14 @@ $(document).ready(() => {
 			$controller2 = 1 ;
 			$targetarea = e.target.parentNode.parentNode.parentNode.parentNode;
 			$textareavalue = $targetarea.lastChild.previousSibling.innerText;
-			$comment_num = $targetarea.lastChild.previousSibling.previousSibling.previousSibling.value;
+			$comment_num = $targetarea.lastChild.previousSibling.previousSibling.changePageContainer__previousSibling.value;
 			$targetarea.lastChild.previousSibling.remove();
 			$targetarea.innerHTML += (`
-				<form method='POST' action='editing.php' class='wrapping'>
+				<form method='POST' action='editing.php' class='comment__sub__message'>
 					<textarea class='comment__form__textarea' name='content'>`+$textareavalue+`</textarea>
 					<input type='hidden' name='helper' value='`+$textareavalue+`'/>
 					<input type='hidden' name='num' value='`+$comment_num+`'/>
-					<div class='wrapping'>
+					<div class='comment__sub__message'>
 						<button type='submit' class='btn btn-primary createcomment'>確認</button>
 						<button type='button' class='btn btn-primary createcomment'>取消</button>
 					</div>
@@ -28,11 +28,11 @@ $(document).ready(() => {
 			$comment_num = $targetarea.lastChild.previousSibling.previousSibling.value;
 			$targetarea.lastChild.remove();
 			$targetarea.innerHTML += (`
-				<form method='POST' action='editing.php' class='wrapping'>
+				<form method='POST' action='editing.php' class='comment__sub__message'>
 					<textarea class='comment__form__textarea' name='content'>`+$textareavalue+`</textarea>
 					<input type='hidden' name='helper' value='`+$textareavalue+`'/>
 					<input type='hidden' name='num' value='`+$comment_num+`'/>
-					<div class='wrapping'>
+					<div class='comment__sub__message'>
 						<button type='submit' class='btn btn-primary createcomment'>確認</button>
 						<button type='button' class='btn btn-primary createcomment'>取消</button>
 					</div>
@@ -40,7 +40,7 @@ $(document).ready(() => {
 		//這個也是跟上面一樣
 		} else if (e.target.className == "dropdown-item deleting" && $controller2 == 0) {
 			$targetarea = e.target.parentNode.parentNode.parentNode.parentNode;
-			$comment_num = $targetarea.lastChild.previousSibling.previousSibling.previousSibling.value;
+			$comment_num = $targetarea.lastChild.changePageContainer__previousSibling.changePageContainer__previousSibling.changePageContainer__previousSibling.value;
 			var r = confirm('確定要刪除嗎QQ?');
 			if(r) {
 				document.cookie= "temporary=" + $comment_num;
@@ -62,50 +62,43 @@ $(document).ready(() => {
 		if(e.target.innerText == "取消") {
 			$targetelement = e.target.parentNode.parentNode.parentNode;
 			e.target.parentNode.parentNode.remove();
-			$targetelement.innerHTML += "<div class='comment_content'>" + $textareavalue + "</div>";
+			$targetelement.innerHTML += "<div class='comment__content'>" + $textareavalue + "</div>";
 			$controller = 2;
 			$controller2 = 2;
 		}
 	}) */
-	// 登入註冊導向
+	// 登入註冊導向 改成 a 
 	$(".logout").click( e => {
 		document.cookie="member_id=;";
 		document.cookie="member_nickname=;";
 		window.location.reload();
 	})
-	$(".buttoncenter").click(e => {
-		if(e.target.innerText == "還沒有帳號嗎QQ") {
-			window.location="register.php";
-		} else if(e.target.innerText == "我已經有帳號了!") {
-			window.location="login.php";
-		}
-	})
 	// 網路頁面導向 (換頁功能)
 	var actual_link = location.href;
 	var pagenum = actual_link.split('page=')[1];
-	var pagelength = document.querySelectorAll('.page').length;
-	var page = document.querySelectorAll('.page');
+	var pagelength = document.querySelectorAll('.changePageContainer__page').length;
+	var page = document.querySelectorAll('.changePageContainer__page');
 	if(!pagenum) {
 		page[0].style = 'font-size:30px;';
 	} else {
 		page[pagenum-1].style = 'font-size:30px;';
 	}
-	$('.pageContainer').on('mouseover','.page', e => {
+	$('.changePageContainer').on('mouseover','.page', e => {
 		for(var i = 0; i < pagelength; i++) {
-			document.querySelectorAll('.page')[i].style = 'font-size:20px;';
+			document.querySelectorAll('.changePageContainer__page')[i].style = 'font-size:20px;';
 		}
 		e.target.style = 'font-size:30px;';
 	})
-	//這邊想用get method 把網址PO上去 但不用會QQ
-	$('.pageContainer').on('click','.page',e => {
+	//這邊想用get method 把網址PO上去 但不用會QQ (問題~)
+	$('.changePageContainer').on('click','.changePageContainer__page',e => {
 		window.location.href="index.php?page=" + e.target.innerText;
 	})
-	$('.pageContainer').on('click','.previous',e => {
+	$('.changePageContainer').on('click','.changePageContainer__previous',e => {
 		if(parseInt(pagenum) - 1 > 0) {
 			window.location.href="index.php?page=" + (parseInt(pagenum)-1);
 		}
 	})
-	$('.pageContainer').on('click','.next',e => {
+	$('.changePageContainer').on('click','.changePageContainer__next',e => {
 		if(parseInt(pagenum) + 1 <= pagelength) {
 			window.location.href="index.php?page=" + (parseInt(pagenum)+1);
 		} else if(!pagenum) {

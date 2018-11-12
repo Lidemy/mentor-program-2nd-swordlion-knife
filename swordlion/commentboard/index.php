@@ -1,11 +1,11 @@
 <?php
- // 開頭先判定有沒有登入 有登入的話存取 COOKIE 讓後面的 Mysql 使用去把 certificate 跟 user 這兩個資料庫連結起來
+ // 開頭先判定有沒有登入 有登入的話存取 COOKIE 讓後面的 Mysql 使用去把 Certificate 跟 user 這兩個資料庫連結起來
 	require('connection.php');
 	
 	$is_login = false;
 	$user_id='';
 	$user_nickname='';
-
+	// 改成 session~
 	if (isset($_COOKIE["member_id"]) && !empty($_COOKIE["member_id"])) {
 		$is_login = true;
     	$user_id = $_COOKIE["member_id"];
@@ -15,7 +15,6 @@
 
 <html>
 	<head>
-		<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 		<title>劍獅的留言小天地</title>
@@ -62,37 +61,37 @@
 		<?php
 			}
 		?>
-		<!-- 這邊 pic2 引入右邊的獅子圖案 -->
-		<div class="pic2"></div>
+		<!-- 這邊 pic__swordlion 引入右邊的獅子圖案 -->
+		<div class="pic__swordlion"></div>
 		<!-- 至中以及控制 max-width 的容器 -->
 		<div class="container">
 			<!-- 點這個到部落格 新加的 之前沒控制好寬度擋到登出按鈕 鬧了笑話 -->
-			<div class="toblog"><a class="toblog__a" href='../blog/blog.php'>點我去劍獅的部落格!</a></div>
+			<div class="blog"><a class="blog__redirection" href='../blog/blog.php'>點我去劍獅的部落格!</a></div>
 			<!-- 最上面的圖案 一樣有不太會控制圖片的問題 -->
-			<div class="pic">
-				<img src="picture/pic.gif" class="pic__inside"/>
+			<div class="pic__liveBetter">
+				<img src="picture/pic.gif" class="pic__liveBetter__inside"/>
 			</div>
 			<!-- 雖然說是 navBar 原本想做一條工具列的 但後面還是覺得沒這個需要 -->
 			<div class="navBar">
 				<h class="navBar__title">劍獅的小小留言板</h>
 			</div>
 			<!-- 這邊開始是跟留言有關的區域 -->
-			<div class="comment-display">
+			<div class="comment">
 				<?php
 				// 如果沒登入主留言欄會顯示請登入
 					if(!$is_login) {
 				?>
-						<div class="sub-list">
-							<div class="comment-display__login adding">
-								<a href="login.php" class="button">登入以進行留言</a>
+						<div class="comment__sub">
+							<div class="comment__sub__notlogin">
+								<a href="login.php">登入以進行留言</a>
 							</div>
 						</div>
 				<?php
 				// 如果有登入主留言欄會顯示留言區塊
 					} else {
 				?>
-				<form class="comment__form" action="add_comment.php" method="post">
-					<div class="comment__form__icon">
+				<form class="comment__form__create" action="add_comment.php" method="post">
+					<div class="comment__icon">
 						<?php
 						// 這邊用登入給的身分證 去抓使用者 老實說這種寫法真是漏漏長QQ
 							$stmt = $conn->prepare("SELECT * from swordlion_knife_users LEFT JOIN swordlion_knife_users_certificate ON swordlion_knife_users_certificate.username = swordlion_knife_users.username WHERE certificate = ?");
@@ -100,13 +99,13 @@
 							$stmt-> execute();
 							$find = $stmt->get_result();
 							$find1 = $find->fetch_assoc();
-							// 我的 avatar 圖案是用 user_id 來做判斷的! 有九張剛好除與 9 這樣 有在想要不要再登入那邊做一個可以自己選圖案的
-							echo "<img src='avatar/". $find1['id'] % 9 .".png' class='comment__form__icon__avatar' />";	
+							// 我的 avatar 圖案是用 user_id 來做判斷的!
+							echo "<img src=avatar/". ($find1['id'] % 9 + 1) . ".png class='comment__avatar' />";	
 						?>
-						<div class="comment__form__icon__userinformation">
+						<div class="comment__userinfo">
 						<?php
 							// 這邊是顯示現在使用者的 nickname
-							echo "<div class='comment__form__icon__userinformation__username'>".$find1['nickname']."</div>";
+							echo "<div class='comment__nickname'>".$find1['nickname']."</div>";
 						?>
 						</div>
 					</div>
