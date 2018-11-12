@@ -9,11 +9,9 @@
 	$check = 1 ;
 	for($i = 0; $i < strlen($_POST['usernames']); $i++ ) {
 		// 後來找到一個很好用的 function 能判斷他是不是英文字母
-		if(!ctype_alpha($_POST['usernames'][$i])) {
-			if(!is_numeric($_POST['usernames'][$i])) {
-				$check = 0 ;
-				echo "<script>alert ('帳號只能有英文跟數字喔~~再試一次吧!');location.href ='register.php';</script>";
-			}
+		if(!ctype_alpha($_POST['usernames'][$i]) && !is_numeric($_POST['usernames'][$i])) {
+			$check = 0 ;
+			echo "<script>alert ('帳號只能有英文跟數字喔~~再試一次吧!');location.href ='register.php';</script>";
 		}
 	}	
 	// 如果暱稱超過11個字好像我的 block 會塞出來的樣子QQ

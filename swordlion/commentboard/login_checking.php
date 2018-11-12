@@ -21,7 +21,7 @@
 	if (isset($_POST['usernames']) && isset($_POST['passwords']) && !empty($_POST['usernames']) && !empty($_POST['passwords']) && $check == 1) {
 
 		$username = $_POST['usernames']; 
-		// 用 md5 去加密 雖然聽說很容易破解 之前 CSS 好像寫過 salt +密的 以後有時間再改一下!
+		// 用 md5 去加密 雖然聽說很容易破解 之前 CS50 好像寫過 salt +密的 以後有時間再改一下!
 	    $password = md5($_POST['passwords']); 
 
 

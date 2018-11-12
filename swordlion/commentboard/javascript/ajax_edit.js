@@ -8,11 +8,11 @@ $(document).ready(() => {
 			$targetarea.children().eq(1).remove();
 			$targetarea.children().eq(1).remove();
 			$targetarea.append(`
-				<form method='POST' action='editing.php' class='wrapping'>
+				<form method='POST' action='editing.php' class='comment__sub__message'>
 					<textarea class='comment__form__textarea' name='content'>`+$textareavalue+`</textarea>
 					<input type='hidden' name='helper' value='`+$textareavalue+`'/>
 					<input type='hidden' name='num' value='`+$comment_num+`'/>
-					<div class='wrapping'>
+					<div class='comment__sub__message'>
 						<button type='submit' class='btn btn-primary createcomment'>確認</button>
 						<button type='button' class='btn btn-primary createcomment'>取消</button>
 					</div>
@@ -27,8 +27,9 @@ $(document).ready(() => {
 				$.ajax ({
 					type: 'POST',
 					url: 'delete.php',
+					// data:
 					success: () => {
-						if($targetarea.hasClass('main-list')) {
+						if($targetarea.hasClass('comment__main')) {
 							$targetarea.parent().remove();
 						} else {
 							$targetarea.remove();
@@ -38,12 +39,12 @@ $(document).ready(() => {
 			}
 		} 
 	})
-	// 編輯後的取消按鈕~~
+	// 編輯後的取消按鈕~~ css 可能用display none 把他藏起來  
 	$(document).on('click','.createcomment', e => {
 		if($(e.target).text() == "取消") {
 			$targetelement = $(e.target).parent().parent().parent();
 			$(e.target).parent().parent().remove();
-			$targetelement.append("<div class='comment_content'>" + $textareavalue + "</div>");
+			$targetelement.append("<div class='comment__content'>" + $textareavalue + "</div>");
 			$controller = 1;
 		}
 	})
