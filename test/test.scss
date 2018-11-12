@@ -58,7 +58,7 @@ li {
 		height: 65px;
 		margin:10px 10px;
     }
-    $__content {
+    &__content {
     	padding: 10px;
     	font-size: 20px;
     }
@@ -201,7 +201,7 @@ li {
 	transform: translate3d(224px, 33px, 0px);
 }
 .edit {
-	width:100%
+	width:100%;
 	text-align:right;
 	right:5px;
 }
