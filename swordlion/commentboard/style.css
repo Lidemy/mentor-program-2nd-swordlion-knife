@@ -1,325 +1,338 @@
-body { 
-	background-color: #ffcf41;
-	word-wrap:break-word;
+body {
+  background-color: #ffcf41;
+  word-wrap: break-word;
 }
-.toblog {
-	margin-top:20px;
-	width:100%;
+
+input:hover {
+  cursor: pointer;
 }
-.toblog__a {
-	display: flex;
-	justify-content: center;
-	font-size: 25px;
-	color:#3b6b3b;
+
+li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 10%;
+  font-size: 20px;
 }
-.toblog__a:hover {
-	color:red;
+
+.blog {
+  margin-top: 20px;
 }
-.peoplenum {
-	display: flex;
-	align-items: center;
-	margin-left: 15px; 
-	margin-top:15px; 
-	font-size: 24px;
+.blog__redirection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 25px;
+  color: #3b6b3b;
 }
+.blog__redirection:hover {
+  color: red;
+}
+
 .countpeople {
-	width:48px;
-	height:48px;
+  width: 48px;
+  height: 48px;
 }
-#showbox {
-	display: flex;
-	justify-content: center;
-	margin-bottom: 100px;
-	margin-top: 50px;
-}
+
 .container {
-	max-width:700px;
-	margin: 0px auto;
-	margin-bottom: 80px; 
-	padding:0px; 
+  max-width: 700px;
+  margin: 0px auto;
+  margin-bottom: 80px;
+  padding: 0px;
 }
-.previous__img , .next__img {
-	width:60%;
+
+.createcomment {
+  margin-top: 10px;
+  background-color: black;
 }
-.pic {
-	max-width: 547px;
-	margin: 0px auto;
-	margin-top: -56px;
+
+.comment {
+  padding: 12px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 1px 1px 2px 3px #888888;
+          box-shadow: 1px 1px 2px 3px #888888;
+  margin-top: 20px;
+  background: white;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
 }
-.pic__inside {
-	margin-top: 50px; 
-	max-width: 100%;
+.comment__avatar {
+  width: 70px;
+  height: 65px;
+  margin: 10px 10px;
 }
-.pic2 {
-	background-image: url("picture/swordlion.gif");
-	background-size:contain; 
-	/* 
-	這邊在想 background-size 的用法
-	我只是想把圖片縮小
-	但她縮小反而變很多張
-	又很難只縮圖片
-	之前去被是用 powerpoint 轉成 gif 檔
-	想知道有沒有更好的做法
-	 */
-	position: fixed;
-	top:140px;
-	right:0px;
-	opacity: 0.8;
-	height: 227px;
-	width:240px;
+.comment__content {
+  padding: 10px;
+  font-size: 20px;
 }
-.comment-display__login {
-	text-align: center;
+.comment__createdat {
+  font-size: 14px;
+  display: block;
 }
-.comment-display__login:hover {
-	background-color: #ea2b2b;
+.comment__userinfo {
+  text-align: left;
+  padding: 10px;
+  margin-top: 5px;
+  width: 50%;
+  margin-left: 10px;
+  font-size: 20px;
 }
-.comment-display__login > a {
-	font-size:20px;
-	text-decoration:none;
-	color:white;
+.comment__sub {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
-.navBar {
-	background-color: burlywood;
-	box-shadow: 1px 1px 2px 3px #888888;
-	justify-content: center;
-	margin-top: 10px;
-	border-width: 2px;
-    border-style: solid;
-    border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
+.comment__sub__display {
+  margin-top: 15px;
+  padding: 10px;
+  background: #b5b4b4;
+  border-radius: 15px;
+  width: 100%;
 }
-.navBar__title {
-	font-size: 35px;
-	font-weight: bold;
-	display: flex;
-	justify-content: center;
+.comment__sub__message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
-.comment-display {
-	padding: 12px;
-	box-sizing: border-box;
-	box-shadow: 1px 1px 2px 3px #888888;
-	margin-top: 20px; 
-	background: white;
-	border-width: 2px;
-    border-style: solid;
-    border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
+.comment__sub__message .comment__form__textarea {
+  height: 100px;
+  margin-right: 10px;
+  width: 88%;
+}
+.comment__sub__form {
+  padding: 10px;
+  background: #b5b4b4;
+  border-radius: 15px;
+  width: 100%;
+  margin-bottom: 0px;
+}
+.comment__sub__form .comment__icon {
+  margin-bottom: 0px;
+}
+.comment__sub__notlogin {
+  padding: 10px;
+  background: #b5b4b4;
+  border-radius: 15px;
+  width: 100%;
+  text-align: center;
+}
+.comment__sub__notlogin a {
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+}
+.comment__sub__notlogin:hover {
+  background-color: #ea2b2b;
 }
 .comment__form {
-	font-size:25px;
-	margin-bottom:0px;
-	width:100%;
-	text-align: right;
+  text-align: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
-.inputarea {
-	margin-top:15px; 
-	margin-right:27%;
-	border-bottom: 2px solid gray;
-	outline: none;
-	font-size:25px;
+.comment__form__button {
+  margin-top: 10px;
 }
-.buttoncenter {
-	display: flex;
-    justify-content: center;
-    margin-top: 10px;
+.comment__form__button__set {
+  margin: 15px;
+  font-size: 16px;
+  width: 190px;
+  left: -10px;
 }
-.button__2 {
-	margin:15px;
-	padding:10px 30px; 
-	font-size: 16px;
-	width:190px;
-	left:-10px;
+.comment__form__button__set a {
+  text-decoration: none;
 }
-.button__2 > a {
-	text-decoration:none;
+.comment__form__create {
+  margin-bottom: 0px;
+  text-align: right;
 }
-input:hover {
-	cursor:pointer;
+.comment__form__logininfo {
+  display: inline;
+  width:100%;
+}
+.comment__form__logininfo__inputarea {
+  margin-top: 15px;
+  margin-right: 27%;
+  border-bottom: 2px solid gray;
+  outline: none;
+  font-size: 25px;
 }
 .comment__form__textarea {
-	padding: 10px;
-	width:100%;
-	height:200px;
-	resize: none;
-	outline: none;
-	border-color:black;
-	font-size: 18px;
+  padding: 10px;
+  width: 100%;
+  height: 200px;
+  resize: none;
+  outline: none;
+  border-color: black;
+  font-size: 18px;
 }
-.createcomment {
-	margin-top: 10px;
-	background-color: black;
-	margin-left: 5px;
+.comment__icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px;
+  width: 100%;
 }
+.comment__icon .comment__avatar {
+  width: 48px;
+  height: 48px;
+}
+
+.changePageContainer {
+  padding: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.changePageContainer__previous img {
+  width: 48px;
+}
+.changePageContainer__previous:hover {
+  cursor: pointer;
+}
+.changePageContainer__next img {
+  width: 48px;
+}
+.changePageContainer__next:hover {
+  cursor: pointer;
+}
+.changePageContainer__page:hover {
+  cursor: pointer;
+}
+
+.dropdown-menu.show {
+  -webkit-transform: translate3d(224px, 33px, 0px);
+          transform: translate3d(224px, 33px, 0px);
+}
+
+.edit, .edit2 {
+  width: 100%;
+  text-align: right;
+  right: 5px;
+}
+
 .logout {
-	position: absolute;
-	top:70px;
-	right:0px;
-	padding:10px 30px;
-	color:white;
+  position: absolute;
+  top: 70px;
+  right: 0px;
+  padding: 10px 30px;
+  color: white;
 }
 .logout:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
-.comment__form__icon {
-	display: flex;
-	margin-bottom: 10px;
+
+.navBar {
+  background-color: burlywood;
+  -webkit-box-shadow: 1px 1px 2px 3px #888888;
+          box-shadow: 1px 1px 2px 3px #888888;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 10px;
 }
-.edit, .edit2 {
-	height:5%;
-	width:59%;
-	margin-right: 20px;
-	display: flex;
-	justify-content: flex-end;
+.navBar__title {
+  font-size: 35px;
 }
-.comment__form__icon__avatar {
-	width:70px;
-	height: 65px;
-	margin:10px 10px;
+
+.pic__liveBetter {
+  max-width: 547px;
+  margin: 0px auto;
+  margin-top: 25px;
 }
-.comment__form__icon__userinformation {
-	display: flex;
-	flex-wrap:wrap;
-	flex-basis: 16%;
-	align-items: center;
-	margin-left: 10px;
-	font-size: 20px;
+.pic__liveBetter__inside {
+  width: 100%;
 }
-.addedcomment {
-	flex-basis: 115px;
+.pic__swordlion {
+  background-image: url("picture/swordlion.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 140px;
+  right: 0px;
+  opacity: 0.8;
+  height: 227px;
 }
-.comment_content {
-	padding: 10px;
-    width: 97%;
-    font-size: 20px; 
+
+.peoplenum {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 15px;
+  margin-top: 15px;
 }
-.comment__form__icon__userinformation__created-time {
-	font-size: 14px;
-	margin-top: -10%;
+
+#showbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 100px;
+  margin-top: 50px;
 }
-.adding {
-	padding: 10px;
-	background:#b5b4b4;
-	margin-bottom:10px; 
-	border-radius: 15px;
-	width:100%;
-}
-.wrapping {
-	display: flex;
-	align-items: flex-end;
-	flex-wrap:wrap;
-}
-.wrapping2 {
-	text-align: right;
-}
-.wrapping > .comment__form__textarea {
-	height: 100px;
-	margin-right: 10px;
-	width:88%;
-}
-.wrapping > .button {
-	height:40px;
-	width: 20%;
-    display: flex;
-    justify-content: center;
-}
-.avatar__littlesize {
-	width:60px;
-	height:50px;
-}
-.marginbottomzero {
-	margin-bottom: 0px;
-}
-.sub-list {
-	display: flex;
-	flex-wrap:wrap;
-	justify-content: center;
-}
-.sub_comment {
-	padding-bottom: 0px;
-}
-.sub_comment > .comment__form__icon {
-	margin-bottom: 0px;
-}
-.dropdown-menu.show {
-	transform: translate3d(224px, 33px, 0px);
-}
-.pageContainer {
-	padding:0px; 
-	display: flex;
-	justify-content: center;
-	list-style: none;
-}
-.page:hover {
-	cursor:pointer;
-}
-.previous:hover, .next:hover {
-	cursor:pointer;
-}
-li {
-	display: flex;
-	justify-content: center;
-	align-items: flex-end;
-	width:10%;
-	font-size:20px;
-}
-@media screen and (max-width: 700px) {
-	.comment-display {
-		margin: 20px;
-	}
-	.comment__form__icon__userinformation {
-		flex-basis: 107px;
-	}
-	.wrapping2 {
-		text-align: left;
-	}
-	.button__2 {
-		display: flex;
-		justify-content: center;
-		margin-left:10px; 
-	}
-	.navBar {
-		margin: 20px;
-	}
-	.navBar__title {
-		font-size: 15px;
-	}
-	.comment__form {
-		text-align: left;
-		font-size: 25px;
-	}
-	.inputarea {
-		margin: 0px;
-		margin-top: 16px;
-		margin-bottom: 15px;
-		width:90%;
-	}
-	.buttoncenter {
-		flex-wrap: wrap;
-		justify-content: flex-start;
-	}
-	.button__2 {
-		margin-left: 0px;
-	}
-	.container {
-		max-width: 500px;
-	}
-	.toblog {
-		margin-top:60px;
-	}
-}
-@media screen and (max-width: 450px) {
-	.edit {
-		margin-top: 2%;
-		position: absolute;
-		width:80%;
-	}
-	.edit2 {
-		margin-top: 2%;
-		position: absolute;
-		width:75%;
-	}
+
+@media screen and (max-width: 768px) {
+  .comment {
+    margin: 20px;
+  }
+
+  .container {
+    max-width: 500px;
+  }
+
+  .navBar {
+    margin: 20px;
+  }
+  .navBar__title {
+    font-size: 18px;
+  }
+
+  .comment__form {
+    font-size: 25px;
+  }
+  .comment__form__logininfo__inputarea {
+    margin-bottom: 15px;
+    width: 90%;
+  }
+
+  .blog {
+    margin-top: 60px;
+  }
 }
 @media screen and (max-width: 1098px) {
-	.pic2 {
-		display: none;
-	}
+  .pic__swordlion {
+    display: none;
+  }
 }
