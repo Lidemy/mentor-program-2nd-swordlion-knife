@@ -1,4 +1,12 @@
 $(document).ready(() => {
+  var spliter = location.href.split('?article=');
+  if(spliter[1]) {
+    $('.create__article').css('display','none');
+    $('.back').css('display','inline-block');
+    $('.back').on('click', () => {
+      window.location = spliter[0];
+    })
+  }
   $('.create__article').on('click',() => {
     $('.create__article').css('display','none');
     $('.article-list').css('display','none');
@@ -19,15 +27,14 @@ $(document).ready(() => {
     })
 
     $('.back').on('click', () => {
-      $('.article-list').css('display','block');
-      $('.back').css('display','none');
-      $('.create__article__form').css('display','none');
-      $('.create__article').css('display','inline-block');
+        $('.article-list').css('display','block');
+        $('.back').css('display','none');
+        $('.create__article__form').css('display','none');
+        $('.create__article').css('display','inline-block');
     })
 
   })
   // 這裡如果有選取文章的話 下面的留言欄的 dropdown 新增 emoji
-  var spliter = location.href.split('?article=');
 
   if(spliter[1]) {
     for(var i = 0; i < emojiSet[0].emoji.length; i++ ) {
@@ -91,11 +98,11 @@ $(document).ready(() => {
           $('.article-list').prepend(`
             <div class='article'>
               <div class='article__area'>
-                <div class='userdetail'>
-                  <div><img src='avatar/${id % 9}.png' class='userdetail__avatar' /></div>
-                  <div class='userdetail__createrinfo'>
-                    <div class='userdetail__creater'>${nickname}</div>
-                    <div class='userdetail__created_at'>${time}</div>
+                <div class='userDetail'>
+                  <div><img src='avatar/${id%9+1}.png' class='userDetail__avatar' /></div>
+                  <div>
+                    <div class='userDetail__creater'>${nickname}</div>
+                    <div class='userDetail__created_at'>${time}</div>
                   </div>
                 </div>
                 <h>${title}</h>
@@ -108,7 +115,7 @@ $(document).ready(() => {
     })
   })
   // 副留言 AJAX
-  $(document).on('submit','.comment-area__form', e => {
+  $(document).on('submit','.subcomment__form', e => {
     
     e.preventDefault();
     var major = $(e.target).find('input[name=major]').val();
@@ -140,14 +147,14 @@ $(document).ready(() => {
             $('.leavecomment-area').before(`<div class='subcomment-list'></div>`)
           }
           $('.subcomment-list').prepend(`
-            <div class='comment-area__form'>
-              <div class='userdetail'>
+            <div class='subcomment'>
+              <div class='userDetail'>
                 <div>
-                  <img src=avatar/${id%9}.png class='userdetail__avatar' />
+                  <img src=avatar/${id%9+1}.png class='userDetail__avatar' />
                 </div>
-                <div class='userdetail__createrinfo'>
-                  <div class='userdetail__creater'>${nickname}</div>
-                  <div class='userdetail__created_at'>${time}</div>
+                <div>
+                  <div class='userDetail__creater'>${nickname}</div>
+                  <div class='userDetail__created_at'>${time}</div>
                 </div>
               </div>
               <p>${newcontent}</p>
@@ -163,10 +170,10 @@ $(document).ready(() => {
     document.cookie="member_nickname=;";
     window.location.reload();
   })
-  $(".buttoncenter").click(e => {
-    if($(e.target).text() == "還沒有帳號嗎QQ") {
+  $(".comment__form__button").click(e => {
+    if(e.target.innerText == "還沒有帳號嗎QQ") {
       window.location="register.php";
-    } else if($(e.target).text() == "我已經有帳號了!") {
+    } else if(e.target.innerText == "我已經有帳號了!") {
       window.location="login.php";
     }
   })

@@ -1,6 +1,5 @@
 <html>
 	<head>
-		<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 		<title>小劍獅一起來註冊!</title>
@@ -14,24 +13,24 @@
 	</head>
 
 	<body onload="ShowTime()">
-		<div class="pic2"></div>
+		<div class="pic__swordlion"></div>
 		<div class="container">
-			<div class="pic">
-				<img src="picture/pic.gif" class="pic__inside"/>
+			<div class="pic__liveBetter">
+				<img src="picture/pic.gif" class="pic__liveBetter__inside"/>
 			</div>
 			<div class="navBar">
 				<h class="navBar__title">いらっしゃいませ！歡迎光臨~★★★</h>
 			</div>
-			<div class="comment-display">
-				<form class="comment__form" action="register_checking.php" method="POST">
-					<div class="wrapping2">
-						帳號 account :  <input class="inputarea" name="usernames" type="text" /><br>
-						密碼 password :  <input class="inputarea" name="passwords" type="password" /><br>
-						暱稱 nickname :  <input class="inputarea" name="nickname" type="text">
+			<div class="comment">
+				<form class="comment__form login" action="register_checking.php" method="POST">
+					<div class="comment__form__logininfo">
+						帳號 account :  <input class="comment__form__logininfo__inputarea" name="usernames" type="text" /><br>
+						密碼 password :  <input class="comment__form__logininfo__inputarea" name="passwords" type="password" /><br>
+						暱稱 nickname :  <input class="comment__form__logininfo__inputarea" name="nickname" type="text">
 					</div>
-					<div class="buttoncenter">
-						<button type="submit" class="button__2 btn btn-outline-primary">註冊起來!</button>
-						<button type="button" class="button__2 btn btn-outline-primary">我已經有帳號了!</button>
+					<div class="comment__form__button">
+						<button type="submit" class="comment__form__button__set btn btn-outline-primary">註冊起來!</button>
+						<button type="button" class="comment__form__button__set btn btn-outline-primary">我已經有帳號了!</button>
 					</div>
 				</form>
 			</div>
