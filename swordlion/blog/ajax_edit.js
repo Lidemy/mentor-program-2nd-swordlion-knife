@@ -20,7 +20,7 @@ $(document).ready(() => {
 							<div class="dropdown-menu main" aria-labelledby="dropdownMenuButton">
 							</div>
 						</div>
-						<textarea name='content' class='create__content'>`+nl2br($content)+`</textarea>
+						<textarea name='content' class='create__content'>`+$content+`</textarea>
 						<input name='num' type='hidden' value='`+$num+`' / >
 						<button type='submit' class='btn btn-primary create__submitButton'>修改文章</button>
 						<button type='button' class='btn btn-primary create__submitButton'>取消修改</button>
@@ -32,7 +32,7 @@ $(document).ready(() => {
 				$targetarea.children().eq(-1).remove();
 				$targetarea.append(`
 					<form method='POST' action='editing_sub.php' class='subcomment__form'>
-						<textarea class='leavecomment__textarea' name='content'>`+nl2br($content)+`</textarea>
+						<textarea class='leavecomment__textarea' name='content'>`+$content+`</textarea>
 						<input type='hidden' name='num' value='`+$num+`'/>
 						<button type='submit' class='btn btn-primary create__submitButton'>修改留言</button>
 						<button type='button' class='btn btn-primary create__submitButton'>不改了</button>
@@ -102,7 +102,7 @@ $(document).ready(() => {
 				}
 			})
 		}
-		if($(e.target).text() == "取消") {
+		if($(e.target).text() == "取消修改") {
 			$targetelement = $(e.target).parent().parent();
 			$(e.target).parent().remove();
 			$targetelement.append(`
