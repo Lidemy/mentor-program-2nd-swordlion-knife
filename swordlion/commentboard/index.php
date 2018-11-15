@@ -45,12 +45,12 @@
 				// 蠻想知道這種連到上一個資料夾裡的檔案的話是只有這種 ../ 的寫法嗎
 				require("../countpeople.php");
 				$string = strlen($num);
-				echo "你是第 ";
+				echo "這個網站已經有 ";
 				for($i = 0;$i < $string; $i++) {
 					$n = substr($num,$i,1);
 					echo "<img class='countpeople' src=countpeople/Sketch00$n.gif />";
 				}
-				echo " 位到來的小劍獅";;
+				echo " 個小劍獅拜訪過囉";;
 			?>
 		</div>
 		<?php 

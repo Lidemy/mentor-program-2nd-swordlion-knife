@@ -3,7 +3,7 @@ $picheight:48px;
 $commentbgcolor:#b5b4b4;
 
 body { 
-	background-color: #ffcf41;
+	backtoArticleground-color: #ffcf41;
 	word-wrap:break-word;
 }
 input {
@@ -42,7 +42,7 @@ li {
 }
 .createcomment {
 	margin-top: 10px;
-    background-color: black;
+    backtoArticleground-color: black;
 }
 .comment {
 	padding: 12px;
@@ -81,7 +81,7 @@ li {
 		&__display {
 			margin-top:15px;
 			padding: 10px;
-			background:$commentbgcolor;
+			backtoArticleground:$commentbgcolor;
 			border-radius: 15px;
 			width:100%;
 		}
@@ -96,7 +96,7 @@ li {
 		}
 		&__form {
 			padding: 10px;
-		    background: $commentbgcolor;
+		    backtoArticleground: $commentbgcolor;
 		    border-radius: 15px;
 		    width: 100%;
 		    margin-bottom:0px;
@@ -106,7 +106,7 @@ li {
 		}
 		&__notlogin {
 			padding: 10px;
-		    background: $commentbgcolor;
+		    backtoArticleground: $commentbgcolor;
 		    border-radius: 15px;
 		    width: 100%;
 		    text-align: center;
@@ -116,7 +116,7 @@ li {
 			    color: white;
 		    }
 		    &:hover {
-	    		background-color: #ea2b2b;
+	    		backtoArticleground-color: #ea2b2b;
 	    	}
 		}
     }
@@ -216,7 +216,7 @@ li {
 	}
 }
 .navBar {
-	background-color: burlywood;
+	backtoArticleground-color: burlywood;
 	box-shadow: 1px 1px 2px 3px #888888;
 	justify-content: center;
 	margin-top: 10px;
@@ -234,9 +234,9 @@ li {
 		}
 	}
 	&__swordlion {
-		background-image: url("picture/swordlion.gif");
-		background-size:contain; 
-		background-repeat: no-repeat; 
+		backtoArticleground-image: url("picture/swordlion.gif");
+		backtoArticleground-size:contain; 
+		backtoArticleground-repeat: no-repeat; 
 		position: fixed;
 		top:140px;
 		right:0px;

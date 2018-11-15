@@ -30,7 +30,8 @@
 		<link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
 		<link rel="stylesheet" href="style.css">
 		<script type="text/javascript" src='emoji/emoji.js'></script>
-		<script method='jquery' src='script.js'></script>
+		<script type="text/javascript" src='script.js'></script>
+		<script type="text/javascript" src='ajax_edit.js'></script>
 	</head>
 
 	<body onload='ShowTime()'>
@@ -38,12 +39,12 @@
 		<?php
 			require("../countpeople.php");
 			$string = strlen($num);
-			echo "你是第 ";
+			echo "這個網站已經有 ";
 			for($i = 0;$i < $string; $i++) {
 				$n = substr($num,$i,1);
 				echo "<img class='countpeople' src=countpeople/Sketch00$n.gif />";
 			}
-			echo " 位到來的小劍獅";;
+			echo " 個小劍獅拜訪過囉";;
 		?>
 		</div>
 		<?php 
@@ -53,11 +54,11 @@
 		<?php
 			}
 		?>
-		<div class="pic2"></div>
+		<div class="pic__swordlion"></div>
 		<div class="container">
-			<div class="tocommentboard"><a class="tocommentboard__a" href='../commentboard/index.php'>點我去劍獅的留言板!</a></div>
-			<div class="pic">
-				<img src="../commentboard/picture/pic.gif" class="pic__inside"/>
+			<div class="commentBoard"><a class="commentBoard__redirection" href='../commentboard/index.php'>點我去劍獅的留言板!</a></div>
+			<div class="pic__liveBetter">
+				<img src="../commentboard/picture/pic.gif" class="pic__liveBetter__inside"/>
 			</div>
 			<div class="navBar">
 				<h class="navBar__title">劍獅的小小部落格</h>
@@ -70,23 +71,23 @@
 			<?php
 				} else {
 			?>
-			<button class='btn btn-primary loginbeforArticle'><a href="login.php">發文前請先登入!</a></button>
+			<button class='btn btn-primary loginBeforePost'><a href="login.php">發文前請先登入!</a></button>
 			<?php
 				}
 			?>	
 			<div class='pagecontainer'>
 				<form class='create__article__form' method="POST" action='create__article.php'>
-					<div class='pagecontainer__title'>發表文章</div>
-					<input name='title' class='article__title' placeholder="在這裡輸入標題" />
+					<div>發表文章</div>
+					<input name='title' class='create__title' placeholder="在這裡輸入標題" />
 					<div class="dropdown">
 						<button class="btn btn-dark dropdown-toggle createcomment" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">😄
 						</button>
 						<div class="dropdown-menu main" aria-labelledby="dropdownMenuButton">
 						</div>
 					</div>
-					<textarea name='content' class='article__content' placeholder="文章輸入區域"></textarea>
+					<textarea name='content' class='create__content' placeholder="文章輸入區域"></textarea>
 					<input name='major' type='hidden' value='0' / >
-					<button type='submit' class='btn btn-primary create__article__form__submit'>送出文章</button>
+					<button type='submit' class='btn btn-primary create__submitButton'>送出文章</button>
 				</form>
 				<div class='article-list'>
 					<?php
@@ -107,18 +108,20 @@
 										for($i = 0; $i < 100; $i++ ) {
 											$newcontent .= $catching['content'][$i];
 										}
+									} else {
+										$newcontent = $catching['content'];
 									}
-									$avatarid = $catching['id']%9;
+									$avatarid = $catching['id']%9+1;
 					?>
 							<div class='article'>
 				              <div class='article__area'>
-				                <div class='userdetail'>
+				                <div class='userDetail'>
 				                  <div>
-				                  	<?php echo "<img src=avatar/".$avatarid.".png class='userdetail__avatar' />" ?>
+				                  	<?php echo "<img src=avatar/".$avatarid.".png class='userDetail__avatar' />" ?>
 				                  </div>
-				                  <div class='userdetail__createrinfo'>
-				                    <div class='userdetail__creater'><?php echo $catching['nickname'] ?></div>
-				                    <div class='userdetail__created_at'><?php echo $catching['created_at'] ?></div>
+				                  <div>
+				                    <div class='userDetail__creater'><?php echo $catching['nickname'] ?></div>
+				                    <div class='userDetail__created_at'><?php echo $catching['created_at'] ?></div>
 				                  </div>
 				                </div>
 				                <h><?php echo $catching['title'] ?></h>
@@ -136,18 +139,34 @@
 							$stmt->execute();
 							$catch = $stmt->get_result();
 							$catching = $catch->fetch_assoc();
-							$avatarid = $catching['id']%9;
+							$avatarid = $catching['id']%9+1;
 					?>
 							<div class='article'>
 				              <div class='article__area'>
-				                <div class='userdetail'>
+				                <div class='userDetail'>
 				                  <div>
-				                  	<?php echo "<img src=avatar/".$avatarid.".png class='userdetail__avatar' />" ?>
+				                  	<?php echo "<img src=avatar/".$avatarid.".png class='userDetail__avatar' />" ?>
 				                  </div>
-				                  <div class='userdetail__createrinfo'>
-				                    <div class='userdetail__creater'><?php echo $catching['nickname'] ?></div>
-				                    <div class='userdetail__created_at'><?php echo $catching['created_at'] ?></div>
+				                  <div>
+				                    <div class='userDetail__creater'><?php echo $catching['nickname'] ?></div>
+				                    <div class='userDetail__created_at'><?php echo $catching['created_at'] ?></div>
 				                  </div>
+				                  	<?php
+								// 這邊如果是使用者本人 跳出修改及刪除留言的 dropdown-menu
+										if($catching['nickname'] == $user_nickname) {
+									?>
+								<!-- 這個是從 bootstrap 抓下來的用法 一定要記得引用jquery 好像還有一個 pop 什麼的才能用 -->
+											<div class="dropdown edit">
+												<button class="btn btn-dark dropdown-toggle createcomment" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												</button>
+												<div class="dropdown-menu padding0" aria-labelledby="dropdownMenuButton">
+												    <div class="dropdown-item editing">編輯</div>
+												    <div class="dropdown-item deleting">刪除</div>
+												</div>
+											</div>
+									<?php
+										}
+									?>
 				                </div>
 				                <h><?php echo $catching['title'] ?></h>
 				                <p><?php echo nl2br(htmlspecialchars($catching["content"],ENT_QUOTES,'UTF-8')) ?></p>
@@ -166,18 +185,35 @@
 						<div class='subcomment-list'>
 					<?php
 							while($catching1 = $catch1->fetch_assoc()) {
-								$avatarid1 = $catching1['id']%9;
+								$avatarid1 = $catching1['id']%9+1;
 					?>
-						<div class='comment-area__form'>
-		                	<div class='userdetail'>
-			                  <div>
-			                  	<?php echo "<img src=avatar/".$avatarid1.".png class='userdetail__avatar' />" ?>
-			                  </div>
-			                  <div class='userdetail__createrinfo'>
-			                    <div class='userdetail__creater'><?php echo $catching1['nickname'] ?></div>
-			                    <div class='userdetail__created_at'><?php echo $catching1['created_at'] ?></div>
-			                  </div>
+						<div class='subcomment'>
+		                	<div class='userDetail'>
+		                    	<div>
+		                  			<?php echo "<img src=avatar/".$avatarid1.".png class='userDetail__avatar' />" ?>
+		                  		</div>
+		                  		<div>
+		                    		<div class='userDetail__creater'><?php echo $catching1['nickname'] ?></div>
+		                    		<div class='userDetail__created_at'><?php echo $catching1['created_at'] ?></div>
+		                  		</div>
+		                  		<?php
+									// 這邊如果是使用者本人 跳出修改及刪除留言的 dropdown-menu
+									if($catching1['nickname'] == $user_nickname) {
+									?>
+								<!-- 這個是從 bootstrap 抓下來的用法 一定要記得引用jquery 好像還有一個 pop 什麼的才能用 -->
+									<div class="dropdown edit">
+										<button class="btn btn-dark dropdown-toggle createcomment" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										</button>
+										<div class="dropdown-menu padding0" aria-labelledby="dropdownMenuButton">
+										    <div class="dropdown-item editing sub">編輯</div>
+										    <div class="dropdown-item deleting">刪除</div>
+										</div>
+									</div>
+								<?php
+									}
+								?>
 			                </div>
+			                <input type='hidden' name='num' value=<?php echo $catching['num'] ?> />
 			                <p><?php echo nl2br(htmlspecialchars($catching1["content"],ENT_QUOTES,'UTF-8')) ?></p>
 		                </div>
 					<?php
@@ -188,13 +224,13 @@
 						}
 					?>
 					<div class='leavecomment-area'>
-		                <form class='comment-area__form' method='POST' action='create__subcomment.php'>
-		                	<div class='userdetail'>
+		                <form class='subcomment__form' method='POST' action='create__subcomment.php'>
+		                	<div class='userDetail'>
 			                  <div>
-			                  	<img src=avatar/<?php echo $user_id % 9 ?>.png class='userdetail__avatar' />
+			                  	<img src=avatar/<?php echo ($user_id % 9 + 1) ?>.png class='userDetail__avatar' />
 			                  </div>
-			                  <div class='userdetail__createrinfo'>
-			                    <div class='userdetail__creater'><?php echo $user_nickname ?></div>
+			                  <div class='userDetail__createrinfo'>
+			                    <div class='userDetail__creater'><?php echo $user_nickname ?></div>
 			                  </div>
 			                </div>
 			                <div class="dropdown">
@@ -203,47 +239,47 @@
 								<div class="dropdown-menu comment" aria-labelledby="dropdownMenuButton">
 								</div>
 							</div>
-							<textarea name='content' class='leavecomment-area__textarea' placeholder="有什麼想法想分享的嗎~"></textarea>
+							<textarea name='content' class='leavecomment__textarea' placeholder="有什麼想法想分享的嗎~"></textarea>
 							<input type='hidden' name='major' value=<?php echo $pagenum ?> />
-							<button type='submit' class='btn btn-primary create__subcomment__form'>發送留言!</button>
+							<button type='submit' class='btn btn-primary leavecomment__submitbutton'>發送留言!</button>
 		                </form>
 					</div>
 					<?php	
 						}
 					?>
-				<div class='personal'>
-					<?php
-					// 如果沒登入主留言欄會顯示登入
-						if(!$is_login) {
-					?>
-							<div class="login">
-								<a href="login.php" class="button">登入起來!</a>
-								<img src='headicon.jpeg' class='login__notlogin' />
-							</div>
-					<?php
-					// 如果有登入主留言欄會顯示留言區塊
-						} else {
-					?>
-					<div class="personal__icon">
-						<?php
-							$stmt = $conn->prepare("SELECT * from swordlion_knife_users LEFT JOIN swordlion_knife_users_certificate ON swordlion_knife_users_certificate.username = swordlion_knife_users.username WHERE certificate = ?");
-							$stmt-> bind_param("s", $_COOKIE["member_id"]);
-							$stmt-> execute();
-							$find = $stmt->get_result();
-							$find1 = $find->fetch_assoc();
-							echo "<img src='avatar/". $find1['id'] % 9 .".png' class='personal__icon__avatar' />";	
-						?>
-						<div class="personal__userinformation">
-							<div class="description">小劍獅:</div>
-						<?php
-							echo "<div class='personal__userinformation__username'>".$find1['nickname']."</div>";
-						?>
+			</div>
+			<div class='personal'>
+				<?php
+				// 如果沒登入主留言欄會顯示登入
+					if(!$is_login) {
+				?>
+						<div class="login">
+							<a href="login.php" class="button">登入起來!</a>
+							<img src='headicon.jpeg' class='login__notlogin' />
 						</div>
-					</div>
+				<?php
+				// 如果有登入主留言欄會顯示留言區塊
+					} else {
+				?>
+				<div class="personal__icon">
 					<?php
-						}
+						$stmt = $conn->prepare("SELECT * from swordlion_knife_users LEFT JOIN swordlion_knife_users_certificate ON swordlion_knife_users_certificate.username = swordlion_knife_users.username WHERE certificate = ?");
+						$stmt-> bind_param("s", $_COOKIE["member_id"]);
+						$stmt-> execute();
+						$find = $stmt->get_result();
+						$find1 = $find->fetch_assoc();
+						echo "<img src='avatar/". ($find1['id'] % 9 + 1) .".png' class='personal__icon__avatar' />";	
 					?>
+					<div class="personal__userinfo">
+						<div class="description">小劍獅:</div>
+					<?php
+						echo "<div class='personal__userinfo__username'>".$find1['nickname']."</div>";
+					?>
+					</div>
 				</div>
+				<?php
+					}
+				?>
 			</div>
 			<div id="showbox"></div>
 		</div>
