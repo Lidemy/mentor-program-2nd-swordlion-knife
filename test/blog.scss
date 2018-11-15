@@ -135,14 +135,10 @@ p {
 	    padding:30px;
 	}
 }
-.navBar {
-	background-color: burlywood;
-	box-shadow: 1px 1px 2px 3px #888888;
-	justify-content: center;
-	margin-top: 10px;
-	&__title {
-		font-size: 35px;
-	}
+.edit, .edit2 {
+  width: 100%;
+  text-align: right;
+  right: 5px;
 }
 .loginBeforePost {
 	margin-top:30px;
@@ -160,6 +156,18 @@ p {
 	&:hover {
 		cursor:pointer;
 	}
+}
+.navBar {
+	background-color: burlywood;
+	box-shadow: 1px 1px 2px 3px #888888;
+	justify-content: center;
+	margin-top: 10px;
+	&__title {
+		font-size: 35px;
+	}
+}
+.padding0 {
+	padding:0px;
 }
 .pic {
 	&__liveBetter {

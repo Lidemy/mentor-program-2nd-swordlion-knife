@@ -54,7 +54,8 @@ $(document).ready(() => {
     e.preventDefault();
     var title = $(e.target).find('input[name=title]').val();
     var content = $(e.target).find('textarea[name=content]').val();
-
+    $(e.target).find('textarea[name=content]').val('');
+    
     $.ajax ({
       type : 'POST',
       url : 'create__article.php',
@@ -83,6 +84,7 @@ $(document).ready(() => {
         const num = res.num;
         var url = location.href;
         var newurl = url + '?article=' + num;
+        var newid = id % 9 + 1 ; 
         if(content.length > 100) {
           var newcontent = '';
           for(var i = 0; i < 100; i++ ) {
@@ -99,7 +101,7 @@ $(document).ready(() => {
             <div class='article'>
               <div class='article__area'>
                 <div class='userDetail'>
-                  <div><img src='avatar/${id%9+1}.png' class='userDetail__avatar' /></div>
+                  <div><img src='avatar/${newid}.png' class='userDetail__avatar' /></div>
                   <div>
                     <div class='userDetail__creater'>${nickname}</div>
                     <div class='userDetail__created_at'>${time}</div>
@@ -120,6 +122,7 @@ $(document).ready(() => {
     e.preventDefault();
     var major = $(e.target).find('input[name=major]').val();
     var content = $(e.target).find('textarea[name=content]').val();
+    $(e.target).find('textarea[name=content]').val('');
 
     $.ajax ({
       type : 'POST',
@@ -142,6 +145,7 @@ $(document).ready(() => {
         const nickname = res.nickname;
         const num = res.num;
         var newcontent = nl2br(content);
+        var newid = id % 9 + 1;
         if (res.result === 'success') {
           if(!$('.reminder').next().hasClass('subcomment-list')) {
             $('.leavecomment-area').before(`<div class='subcomment-list'></div>`)
@@ -150,7 +154,7 @@ $(document).ready(() => {
             <div class='subcomment'>
               <div class='userDetail'>
                 <div>
-                  <img src=avatar/${id%9+1}.png class='userDetail__avatar' />
+                  <img src=avatar/${newid}.png class='userDetail__avatar' />
                 </div>
                 <div>
                   <div class='userDetail__creater'>${nickname}</div>

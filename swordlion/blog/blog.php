@@ -31,6 +31,7 @@
 		<link rel="stylesheet" href="style.css">
 		<script type="text/javascript" src='emoji/emoji.js'></script>
 		<script type="text/javascript" src='script.js'></script>
+		<script type="text/javascript" src='ajax_edit.js'></script>
 	</head>
 
 	<body onload='ShowTime()'>
@@ -38,12 +39,12 @@
 		<?php
 			require("../countpeople.php");
 			$string = strlen($num);
-			echo "你是第 ";
+			echo "這個網站已經有 ";
 			for($i = 0;$i < $string; $i++) {
 				$n = substr($num,$i,1);
 				echo "<img class='countpeople' src=countpeople/Sketch00$n.gif />";
 			}
-			echo " 位到來的小劍獅";;
+			echo " 個小劍獅拜訪過囉";;
 		?>
 		</div>
 		<?php 
@@ -107,6 +108,8 @@
 										for($i = 0; $i < 100; $i++ ) {
 											$newcontent .= $catching['content'][$i];
 										}
+									} else {
+										$newcontent = $catching['content'];
 									}
 									$avatarid = $catching['id']%9+1;
 					?>
@@ -148,6 +151,22 @@
 				                    <div class='userDetail__creater'><?php echo $catching['nickname'] ?></div>
 				                    <div class='userDetail__created_at'><?php echo $catching['created_at'] ?></div>
 				                  </div>
+				                  	<?php
+								// 這邊如果是使用者本人 跳出修改及刪除留言的 dropdown-menu
+										if($catching['nickname'] == $user_nickname) {
+									?>
+								<!-- 這個是從 bootstrap 抓下來的用法 一定要記得引用jquery 好像還有一個 pop 什麼的才能用 -->
+											<div class="dropdown edit">
+												<button class="btn btn-dark dropdown-toggle createcomment" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												</button>
+												<div class="dropdown-menu padding0" aria-labelledby="dropdownMenuButton">
+												    <div class="dropdown-item editing">編輯</div>
+												    <div class="dropdown-item deleting">刪除</div>
+												</div>
+											</div>
+									<?php
+										}
+									?>
 				                </div>
 				                <h><?php echo $catching['title'] ?></h>
 				                <p><?php echo nl2br(htmlspecialchars($catching["content"],ENT_QUOTES,'UTF-8')) ?></p>
@@ -170,14 +189,31 @@
 					?>
 						<div class='subcomment'>
 		                	<div class='userDetail'>
-			                  <div>
-			                  	<?php echo "<img src=avatar/".$avatarid1.".png class='userDetail__avatar' />" ?>
-			                  </div>
-			                  <div>
-			                    <div class='userDetail__creater'><?php echo $catching1['nickname'] ?></div>
-			                    <div class='userDetail__created_at'><?php echo $catching1['created_at'] ?></div>
-			                  </div>
+		                    	<div>
+		                  			<?php echo "<img src=avatar/".$avatarid1.".png class='userDetail__avatar' />" ?>
+		                  		</div>
+		                  		<div>
+		                    		<div class='userDetail__creater'><?php echo $catching1['nickname'] ?></div>
+		                    		<div class='userDetail__created_at'><?php echo $catching1['created_at'] ?></div>
+		                  		</div>
+		                  		<?php
+									// 這邊如果是使用者本人 跳出修改及刪除留言的 dropdown-menu
+									if($catching1['nickname'] == $user_nickname) {
+									?>
+								<!-- 這個是從 bootstrap 抓下來的用法 一定要記得引用jquery 好像還有一個 pop 什麼的才能用 -->
+									<div class="dropdown edit">
+										<button class="btn btn-dark dropdown-toggle createcomment" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										</button>
+										<div class="dropdown-menu padding0" aria-labelledby="dropdownMenuButton">
+										    <div class="dropdown-item editing sub">編輯</div>
+										    <div class="dropdown-item deleting">刪除</div>
+										</div>
+									</div>
+								<?php
+									}
+								?>
 			                </div>
+			                <input type='hidden' name='num' value=<?php echo $catching['num'] ?> />
 			                <p><?php echo nl2br(htmlspecialchars($catching1["content"],ENT_QUOTES,'UTF-8')) ?></p>
 		                </div>
 					<?php
