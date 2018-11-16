@@ -39,12 +39,12 @@
 		<?php
 			require("../countpeople.php");
 			$string = strlen($num);
-			echo "這個網站已經有 ";
+			echo "已經有 ";
 			for($i = 0;$i < $string; $i++) {
 				$n = substr($num,$i,1);
 				echo "<img class='countpeople' src=countpeople/Sketch00$n.gif />";
 			}
-			echo " 個小劍獅拜訪過囉";;
+			echo " 個小劍獅飄過~😊😊😊";;
 		?>
 		</div>
 		<?php 
@@ -206,14 +206,14 @@
 										</button>
 										<div class="dropdown-menu padding0" aria-labelledby="dropdownMenuButton">
 										    <div class="dropdown-item editing sub">編輯</div>
-										    <div class="dropdown-item deleting">刪除</div>
+										    <div class="dropdown-item deleting sub">刪除</div>
 										</div>
 									</div>
 								<?php
 									}
 								?>
 			                </div>
-			                <input type='hidden' name='num' value=<?php echo $catching['num'] ?> />
+			                <input type='hidden' name='num' value=<?php echo $catching1['num'] ?> />
 			                <p><?php echo nl2br(htmlspecialchars($catching1["content"],ENT_QUOTES,'UTF-8')) ?></p>
 		                </div>
 					<?php

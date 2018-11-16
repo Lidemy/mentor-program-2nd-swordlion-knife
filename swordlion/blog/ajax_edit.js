@@ -1,9 +1,9 @@
 $(document).ready(() => {
 	$(document).on('click',".dropdown-menu", e => {
 		var spliter = location.href.split('?article=');
+		$targetarea = $(e.target).parent().parent().parent().parent();
 		// 編輯最後不AJAX 如果點了確認就還是換頁 結果我最後好像還是 AJAX 了
 		if($(e.target).hasClass("editing")) {
-			$targetarea = $(e.target).parent().parent().parent().parent();
 			if($targetarea.hasClass("article__area")) {
 				$title = $targetarea.children().eq(1).text();
 				$content = $targetarea.children().eq(2).text();
@@ -20,7 +20,7 @@ $(document).ready(() => {
 							<div class="dropdown-menu main" aria-labelledby="dropdownMenuButton">
 							</div>
 						</div>
-						<textarea name='content' class='create__content'>`+nl2br($content)+`</textarea>
+						<textarea name='content' class='create__content'>`+$content+`</textarea>
 						<input name='num' type='hidden' value='`+$num+`' / >
 						<button type='submit' class='btn btn-primary create__submitButton'>修改文章</button>
 						<button type='button' class='btn btn-primary create__submitButton'>取消修改</button>
@@ -32,7 +32,7 @@ $(document).ready(() => {
 				$targetarea.children().eq(-1).remove();
 				$targetarea.append(`
 					<form method='POST' action='editing_sub.php' class='subcomment__form'>
-						<textarea class='leavecomment__textarea' name='content'>`+nl2br($content)+`</textarea>
+						<textarea class='leavecomment__textarea' name='content'>`+$content+`</textarea>
 						<input type='hidden' name='num' value='`+$num+`'/>
 						<button type='submit' class='btn btn-primary create__submitButton'>修改留言</button>
 						<button type='button' class='btn btn-primary create__submitButton'>不改了</button>
@@ -40,20 +40,40 @@ $(document).ready(() => {
 				`);
 			}
 		} else if ($(e.target).hasClass("deleting")) {
-			var r = confirm('確定要刪除嗎QQ?');
-			if(r) {
-				$.ajax ({
-					type: 'POST',
-					url: 'delete.php',
-					// data:
-					success: () => {
-						if($targetarea.hasClass('comment__main')) {
-							$targetarea.parent().remove();
-						} else {
-							$targetarea.remove();
+			if($targetarea.hasClass("article__area")) {
+				$mainnum = spliter[1];
+				var r = confirm('確定要刪除嗎QQ?');
+				if(r) {
+					$.ajax ({
+						type : 'POST',
+						url : 'delete_article.php',
+						data : {
+							mainnum : $mainnum
+						},
+						success : () => {
+							window.location = spliter[0];
+							alert('刪除成功!');
 						}
-					}
-				})
+					})
+				}
+			} else {
+				$subnum = $targetarea.children().eq(1).val();
+				var r = confirm('確定要刪除嗎QQ?');
+				if(r) {
+					$.ajax ({
+						type: 'POST',
+						url: 'delete_subcomment.php',
+						data: {
+							subnum : $subnum
+						},
+						success: () => {
+							$targetarea.remove();
+							if($('.subcomment').length == 0) {
+								$('.subcomment-list').remove();
+							}
+						}
+					})
+				}
 			}
 		} 
 	})
@@ -102,7 +122,7 @@ $(document).ready(() => {
 				}
 			})
 		}
-		if($(e.target).text() == "取消") {
+		if($(e.target).text() == "取消修改") {
 			$targetelement = $(e.target).parent().parent();
 			$(e.target).parent().remove();
 			$targetelement.append(`

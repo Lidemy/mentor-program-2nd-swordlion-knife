@@ -106,6 +106,14 @@ $(document).ready(() => {
                     <div class='userDetail__creater'>${nickname}</div>
                     <div class='userDetail__created_at'>${time}</div>
                   </div>
+                  <div class="dropdown edit">
+                    <button class="btn btn-dark dropdown-toggle createcomment" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    </button>
+                    <div class="dropdown-menu padding0" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-item editing">編輯</div>
+                        <div class="dropdown-item deleting">刪除</div>
+                    </div>
+                  </div>
                 </div>
                 <h>${title}</h>
                 <p>${nl2br(newcontent)}<a href=${newurl} class='continue'>繼續閱讀...</a></p>
@@ -159,6 +167,14 @@ $(document).ready(() => {
                 <div>
                   <div class='userDetail__creater'>${nickname}</div>
                   <div class='userDetail__created_at'>${time}</div>
+                </div>
+                <div class="dropdown edit">
+                  <button class="btn btn-dark dropdown-toggle createcomment" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  </button>
+                  <div class="dropdown-menu padding0" aria-labelledby="dropdownMenuButton">
+                      <div class="dropdown-item editing">編輯</div>
+                      <div class="dropdown-item deleting">刪除</div>
+                  </div>
                 </div>
               </div>
               <p>${newcontent}</p>
