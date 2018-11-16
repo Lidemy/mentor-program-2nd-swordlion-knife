@@ -206,14 +206,14 @@
 										</button>
 										<div class="dropdown-menu padding0" aria-labelledby="dropdownMenuButton">
 										    <div class="dropdown-item editing sub">編輯</div>
-										    <div class="dropdown-item deleting">刪除</div>
+										    <div class="dropdown-item deleting sub">刪除</div>
 										</div>
 									</div>
 								<?php
 									}
 								?>
 			                </div>
-			                <input type='hidden' name='num' value=<?php echo $catching['num'] ?> />
+			                <input type='hidden' name='num' value=<?php echo $catching1['num'] ?> />
 			                <p><?php echo nl2br(htmlspecialchars($catching1["content"],ENT_QUOTES,'UTF-8')) ?></p>
 		                </div>
 					<?php

@@ -1,9 +1,9 @@
 $(document).ready(() => {
 	$(document).on('click',".dropdown-menu", e => {
 		var spliter = location.href.split('?article=');
+		$targetarea = $(e.target).parent().parent().parent().parent();
 		// 編輯最後不AJAX 如果點了確認就還是換頁 結果我最後好像還是 AJAX 了
 		if($(e.target).hasClass("editing")) {
-			$targetarea = $(e.target).parent().parent().parent().parent();
 			if($targetarea.hasClass("article__area")) {
 				$title = $targetarea.children().eq(1).text();
 				$content = $targetarea.children().eq(2).text();
@@ -40,20 +40,40 @@ $(document).ready(() => {
 				`);
 			}
 		} else if ($(e.target).hasClass("deleting")) {
-			var r = confirm('確定要刪除嗎QQ?');
-			if(r) {
-				$.ajax ({
-					type: 'POST',
-					url: 'delete.php',
-					// data:
-					success: () => {
-						if($targetarea.hasClass('comment__main')) {
-							$targetarea.parent().remove();
-						} else {
-							$targetarea.remove();
+			if($targetarea.hasClass("article__area")) {
+				$mainnum = spliter[1];
+				var r = confirm('確定要刪除嗎QQ?');
+				if(r) {
+					$.ajax ({
+						type : 'POST',
+						url : 'delete_article.php',
+						data : {
+							mainnum : $mainnum
+						},
+						success : () => {
+							window.location = spliter[0];
+							alert('刪除成功!');
 						}
-					}
-				})
+					})
+				}
+			} else {
+				$subnum = $targetarea.children().eq(1).val();
+				var r = confirm('確定要刪除嗎QQ?');
+				if(r) {
+					$.ajax ({
+						type: 'POST',
+						url: 'delete_subcomment.php',
+						data: {
+							subnum : $subnum
+						},
+						success: () => {
+							$targetarea.remove();
+							if($('.subcomment').length == 0) {
+								$('.subcomment-list').remove();
+							}
+						}
+					})
+				}
 			}
 		} 
 	})
