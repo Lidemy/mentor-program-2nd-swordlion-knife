@@ -23,11 +23,12 @@ $(document).ready(() => {
 			$comment_num = $targetarea.children().eq(1).val();;
 			var r = confirm('確定要刪除嗎QQ?');
 			if(r) {
-				document.cookie= "temporary=" + $comment_num;
 				$.ajax ({
 					type: 'POST',
 					url: 'delete.php',
-					// data:
+					data: {
+						num : $comment_num
+					},
 					success: () => {
 						if($targetarea.hasClass('comment__main')) {
 							$targetarea.parent().remove();

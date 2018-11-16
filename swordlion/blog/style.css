@@ -16,7 +16,8 @@ p {
 .article {
   border: 1px solid;
   border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
-  box-shadow: 1px 1px 2px 3px #888888;
+  -webkit-box-shadow: 1px 1px 2px 3px #888888;
+          box-shadow: 1px 1px 2px 3px #888888;
   background: white;
   margin-bottom: 30px;
 }
@@ -37,8 +38,12 @@ p {
   margin-top: 20px;
 }
 .commentBoard__redirection {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-size: 25px;
   color: #3b6b3b;
 }
@@ -54,8 +59,8 @@ p {
 }
 
 .countpeople {
-  width: 48px;
-  height: 48px;
+  width: 35px;
+  height: 35px;
 }
 
 .continue {
@@ -65,8 +70,10 @@ p {
 
 .comment {
   padding: 12px;
-  box-sizing: border-box;
-  box-shadow: 1px 1px 2px 3px #888888;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 1px 1px 2px 3px #888888;
+          box-shadow: 1px 1px 2px 3px #888888;
   margin-top: 20px;
   background: white;
   border-width: 2px;
@@ -75,9 +82,14 @@ p {
 }
 .comment__form {
   text-align: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .comment__form__logininfo {
   display: inline;
@@ -110,7 +122,8 @@ p {
   display: none;
   background: white;
   padding: 40px;
-  box-shadow: 1px 1px 2px 3px #888888;
+  -webkit-box-shadow: 1px 1px 2px 3px #888888;
+          box-shadow: 1px 1px 2px 3px #888888;
   border-width: 2px;
   border-style: solid;
   border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
@@ -137,8 +150,11 @@ p {
   margin-top: 20px;
 }
 .dropdown-menu.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   padding: 30px;
 }
 
@@ -169,8 +185,11 @@ p {
 
 .navBar {
   background-color: burlywood;
-  box-shadow: 1px 1px 2px 3px #888888;
-  justify-content: center;
+  -webkit-box-shadow: 1px 1px 2px 3px #888888;
+          box-shadow: 1px 1px 2px 3px #888888;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 10px;
 }
 .navBar__title {
@@ -178,7 +197,7 @@ p {
 }
 
 .padding0 {
-  padding: 0.5rem 0 !important;
+  padding: 0px;
 }
 
 .pic__liveBetter {
@@ -197,6 +216,7 @@ p {
   top: 140px;
   right: 0px;
   opacity: 0.8;
+  width: 227px;
   height: 227px;
 }
 
@@ -205,8 +225,6 @@ p {
 }
 
 .peoplenum {
-  display: flex;
-  align-items: center;
   margin-left: 15px;
   margin-top: 15px;
 }
@@ -216,7 +234,8 @@ p {
   width: 100%;
   border: 1px solid;
   border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
-  box-shadow: 1px 1px 2px 3px #888888;
+  -webkit-box-shadow: 1px 1px 2px 3px #888888;
+          box-shadow: 1px 1px 2px 3px #888888;
   background: white;
   margin-bottom: 30px;
 }
@@ -226,7 +245,8 @@ p {
   width: 100%;
   border: 1px solid;
   border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
-  box-shadow: 1px 1px 2px 3px #888888;
+  -webkit-box-shadow: 1px 1px 2px 3px #888888;
+          box-shadow: 1px 1px 2px 3px #888888;
   background: white;
   margin-bottom: 30px;
 }
@@ -245,10 +265,15 @@ p {
 }
 
 .login {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-size: 23px;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 .login__notlogin {
   width: 80px;
@@ -262,7 +287,8 @@ p {
   padding: 30px 20px;
   border: 1px solid;
   border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
-  box-shadow: 1px 1px 2px 3px #888888;
+  -webkit-box-shadow: 1px 1px 2px 3px #888888;
+          box-shadow: 1px 1px 2px 3px #888888;
   background: white;
   width: 10%;
   position: fixed;
@@ -270,15 +296,24 @@ p {
   top: 160px;
 }
 .personal__icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .personal__icon__avatar {
   width: 80px;
 }
 .personal__userinfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 20px;
 }
@@ -291,8 +326,12 @@ p {
 }
 
 .userDetail {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 20px;
 }
 .userDetail__avatar {
@@ -301,16 +340,51 @@ p {
 }
 
 #showbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-bottom: 100px;
   margin-top: 50px;
 }
 
 @media screen and (max-width: 768px) {
   .commentBoard {
-    margin-top: 60px;
+    margin-top: 85px;
+  }
+
+  .container {
+    max-width: 500px;
+  }
+
+  .back, .create__article {
+    margin-left: 20px;
+  }
+
+  .comment__form {
+    font-size: 25px;
+  }
+  .comment__form__logininfo__inputarea {
+    margin-bottom: 15px;
+    width: 90%;
+  }
+
+  .personal {
+    display: none;
+  }
+
+  .pagecontainer {
+    margin: 20px;
+  }
+
+  .navBar {
+    margin: 20px;
   }
 }
-
-/*# sourceMappingURL=blog.css.map */
+@media screen and (max-width: 1098px) {
+  .pic__swordlion {
+    display: none;
+  }
+}

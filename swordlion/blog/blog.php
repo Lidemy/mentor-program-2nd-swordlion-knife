@@ -39,12 +39,12 @@
 		<?php
 			require("../countpeople.php");
 			$string = strlen($num);
-			echo "這個網站已經有 ";
+			echo "已經有 ";
 			for($i = 0;$i < $string; $i++) {
 				$n = substr($num,$i,1);
 				echo "<img class='countpeople' src=countpeople/Sketch00$n.gif />";
 			}
-			echo " 個小劍獅拜訪過囉";;
+			echo " 個小劍獅飄過~😊😊😊";;
 		?>
 		</div>
 		<?php 

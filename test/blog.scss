@@ -1,5 +1,5 @@
-$picwidth:48px;
-$picheight:48px;
+$picwidth:35px;
+$picheight:35px;
 $commentbgcolor:#b5b4b4;
 
 body { 
@@ -186,6 +186,7 @@ p {
 		top:140px;
 		right:0px;
 		opacity: 0.8;
+		width: 227px;
 		height: 227px;
 	}
 }
@@ -193,8 +194,6 @@ p {
 	margin-top: 30px;
 }
 .peoplenum {
-	display: flex;
-	align-items: center;
 	margin-left: 15px; 
 	margin-top:15px;
 }
@@ -293,6 +292,36 @@ p {
 }
 @media screen and (max-width: 768px) {
 	.commentBoard {
-		margin-top:60px;
+		margin-top:85px;
 	}
+	.container {
+	    max-width: 500px;
+	}
+	.back , .create__article {
+		margin-left:20px;
+	}
+	.comment__form {
+		font-size: 25px;
+		&__logininfo {
+			&__inputarea {
+				margin-bottom: 15px;
+	    		width: 90%;
+			}
+		}
+    }
+	.personal {
+		display: none;
+	}
+	.pagecontainer {
+		margin: 20px;
+	}
+	.navBar {
+	    margin: 20px;
+	}
+	
+}
+@media screen and (max-width: 1098px) {
+  .pic__swordlion {
+    display: none;
+  }
 }
