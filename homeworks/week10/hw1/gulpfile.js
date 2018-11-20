@@ -24,7 +24,7 @@ gulp.task('styles',['clean'],()=> {
 gulp.task('es5', ['clean'],()=> {
 	gulp.src('./source/*.js')
 		.pipe(babel({
-			"presets": ["es2015"]
+			"presets": ["env"]
 		}))
         .pipe(uglify())
         .pipe(rename({
