@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<%- include('header.ejs') %>
+		<%- include('script.ejs') %>
+	</head>
+
+	<body onload="ShowTime()">
+		<div class="pic__swordlion"></div>
+		<div class="container">
+			<div class="pic__liveBetter">
+				<img src="pic.gif" class="pic__liveBetter__inside"/>
+			</div>
+			<div class="navBar">
+				<h class="navBar__title">いらっしゃいませ！歡迎光臨~★★★</h>
+			</div>
+			<div class="comment">
+				<form class="comment__form login" action="register_checking.php" method="POST">
+					<div class="comment__form__logininfo">
+						帳號 account :  <input class="comment__form__logininfo__inputarea" name="usernames" type="text" /><br>
+						密碼 password :  <input class="comment__form__logininfo__inputarea" name="passwords" type="password" /><br>
+						暱稱 nickname :  <input class="comment__form__logininfo__inputarea" name="nickname" type="text">
+					</div>
+					<div class="comment__form__button">
+						<button type="submit" class="comment__form__button__set btn btn-outline-primary">註冊起來!</button>
+						<button type="button" class="comment__form__button__set btn btn-outline-primary">我已經有帳號了!</button>
+					</div>
+				</form>
+			</div>
+			<div id="showbox"></div>
+		</div>
+	</body>
+</html>
