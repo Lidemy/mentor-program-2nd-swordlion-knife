@@ -9,9 +9,7 @@ $(document).ready(() => {
 		}
 	}) 
 	$(".logout").click( e => {
-		document.cookie="member_id=;";
-		document.cookie="member_nickname=;";
-		window.location.reload();
+		window.location = '/logout';
 	})
 	$(".comment__form__button").click(e => {
 		if(e.target.innerText == "還沒有帳號嗎QQ") {

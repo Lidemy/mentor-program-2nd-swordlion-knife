@@ -1,6 +1,3 @@
 module.exports = {
-	password:() => {
-		username: 'student2nd',
-		password: 'mentorstudent123'
-	}
+	password: 'mentorstudent123'
 }

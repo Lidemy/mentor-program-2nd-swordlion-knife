@@ -1,19 +1,25 @@
 const sequelize = require("sequelize")
 const setting = require('./setting')
 
-const sequelize = new Sequelize("mentor_program_db",'huli',setting.password, {
-	host:'166.62.28.131',
+const Connection = new sequelize("mentor_program_db",'student2nd',setting.password, {
+	host:'mentor-program.co',
 	dialect:'mysql'
 })
 
-sequelize
-	.authenticata()
-	.then(() => {
-		console.log("connection success")
-	})
-	.catch(err => {
-		console.error("connection fail")
-	});
 
-module.exports = sequelize
+const db = {}
+db.sequelize = sequelize
+db.Connection = Connection
+
+db.users = require('./user')
+db.posts = require('./post')
+db.subposts = require('./subpost')
+
+db.posts.belongsTo(db.users)
+db.users.hasMany(db.posts)
+
+db.subposts.belongsTo(db.posts)
+db.posts.hasMany(db.subposts)
+
+module.exports = db
 

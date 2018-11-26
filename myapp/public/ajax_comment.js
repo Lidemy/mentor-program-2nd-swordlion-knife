@@ -1,6 +1,6 @@
 // 參考其他同學作業 POST GET 
 // CSS HTML 命名很亂 寫的簡潔一點
-$(document).ready(() => {
+/*$(document).ready(() => {
 	$(document).on("submit",".comment__sub__message",e => {
 		e.preventDefault();
 		var content = $(e.target).find('textarea[name=content]').val();
@@ -31,7 +31,7 @@ $(document).ready(() => {
 		$(e.target).parent().find('textarea[name=content]').val('');
 		$.ajax ({
 			type: 'POST',
-			url: 'add_comment.php',
+			url: '/post',
 			data: {
 				content: content ,
 				major: major
@@ -86,7 +86,7 @@ $(document).on("submit",".comment__sub__form", e => {
 		$(e.target).parent().find('textarea[name=content]').val('');
 		$.ajax ({
 			type: 'POST',
-			url: 'add_comment.php',
+			url: '/subpost',
 			data: {
 				content: content ,
 				major: major
@@ -146,3 +146,4 @@ $(document).on("submit",".comment__sub__form", e => {
 			}
 		})
 })
+*/
