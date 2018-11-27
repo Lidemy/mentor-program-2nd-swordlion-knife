@@ -1,20 +1,18 @@
-const sequelize = require("sequelize")
-
 module.exports = (sequelize,DataTypes) => {
 	const Users = sequelize.define('user',{
 	nickname: {
-		type:Sequelize.STRING
+		type:DataTypes.STRING
 	},
 	username: {
-		type:Sequelize.STRING
+		type:DataTypes.STRING
 	},
 	password: {
-		type:Sequelize.STRING
+		type:DataTypes.STRING
 	}
 },{
 	tableName:'swordlion_knife_express_users'
 	});
-	User.sync()
+	Users.sync()
 
 	return Users
 }

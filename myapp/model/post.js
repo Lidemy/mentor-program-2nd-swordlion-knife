@@ -3,10 +3,10 @@ const sequelize = require("sequelize")
 module.exports = (sequelize,DataTypes) => {
 	const Posts = sequelize.define('posts',{
 	user_id: {
-		type:Sequelize.INTEGER
+		type:DataTypes.INTEGER
 	},
 	content: {
-		type:Sequelize.STRING
+		type:DataTypes.STRING
 	}
 },{
 	tableName:'swordlion_knife_express_posts'

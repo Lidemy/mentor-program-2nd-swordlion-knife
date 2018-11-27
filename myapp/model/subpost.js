@@ -3,10 +3,10 @@ const sequelize = require("sequelize")
 module.exports = (sequelize,DataTypes) => {
 	const Subposts = sequelize.define('subposts',{
 	post_id: {
-		type:Sequelize.INTEGER
+		type:DataTypes.INTEGER
 	},
 	content: {
-		type:Sequelize.STRING
+		type:DataTypes.STRING
 	}
 },{
 	tableName:'swordlion_knife_express_subposts'

@@ -2,13 +2,13 @@ const db = require('../model/db')
 var trigger = 0;
 module.exports = {
 	index:(req,res) => {
-		db.user.findAll({
+		db.users.findAll({
 			include: [
 				{
-					model:db.post,
+					model:db.posts,
 					include: [
 						{
-							model:db.subpost
+							model:db.subposts
 						}
 					]
 				}
@@ -58,7 +58,7 @@ module.exports = {
 		})
 	},
 	loginChecking: (req,res) => {
-		User.find({
+		db.users.find({
 			where: {
 				username: req.body.usernames,
 				password: req.body.passwords
@@ -84,7 +84,7 @@ module.exports = {
 		})
 	},
 	registerChecking: (req,res) => {
-		User.find({
+		db.users.find({
 			where: {
 				username: req.body.usernames
 			}
@@ -93,7 +93,7 @@ module.exports = {
 				trigger = 1;
 				res.redirect('/register')
 			} else {
-				User.create({
+				db.users.create({
 					nickname: req.body.nickname,
 					username: req.body.usernames,
 					password: req.body.passwords
@@ -109,13 +109,13 @@ module.exports = {
 		})
 	},
 	post:(req,res) => {
-		User.find({
+		db.users.find({
 			where: {
 				username: req.session.username
 			}
 		}).then((data) => {
 			if(data) {
-				Post.create({
+				db.posts.create({
 					major: req.body.major,
 					user_id: data.id,
 					content: req.body.content
@@ -128,14 +128,9 @@ module.exports = {
 		})
 	},
 	subpost:(req,res) => {
-		User.find({
-			where: {
-				username:req.session.username
-			}
-		}).then((data) => {
-			subPost.create({
-				major,
-			})
+		db.subposts.create({
+			post_id:req.body.major,
+			content:req.body.content
 		})
 	},
 	logout: (req,res) => {

@@ -6,14 +6,22 @@ const Connection = new sequelize("mentor_program_db",'student2nd',setting.passwo
 	dialect:'mysql'
 })
 
-
+Connection
+	.authenticate()
+	.then(() => {
+		console.log("success")
+	})
+	.catch(err => {
+		console.error("connection fail")
+	});
+	
 const db = {}
 db.sequelize = sequelize
 db.Connection = Connection
 
-db.users = require('./user')
-db.posts = require('./post')
-db.subposts = require('./subpost')
+db.users = require('./user')(Connection, sequelize)
+db.posts = require('./post')(Connection, sequelize)
+db.subposts = require('./subpost')(Connection, sequelize)
 
 db.posts.belongsTo(db.users)
 db.users.hasMany(db.posts)
