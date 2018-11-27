@@ -1,5 +1,3 @@
-const sequelize = require("sequelize")
-
 module.exports = (sequelize,DataTypes) => {
 	const Subposts = sequelize.define('subposts',{
 	post_id: {
@@ -9,6 +7,7 @@ module.exports = (sequelize,DataTypes) => {
 		type:DataTypes.STRING
 	}
 },{
+	underscored:true,
 	tableName:'swordlion_knife_express_subposts'
 	});
 	Subposts.sync()

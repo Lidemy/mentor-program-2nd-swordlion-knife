@@ -10,6 +10,7 @@ module.exports = (sequelize,DataTypes) => {
 		type:DataTypes.STRING
 	}
 },{
+	underscored:true,
 	tableName:'swordlion_knife_express_users'
 	});
 	Users.sync()
