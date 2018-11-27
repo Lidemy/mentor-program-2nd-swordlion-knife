@@ -28,27 +28,28 @@ module.exports = {
 									post_id:post.id,
 									user_id:post.user_id,
 									content:post.content,
+									created_at:post.created_at,
 									subpost:post.subposts.map(subpost => {
 										return Object.assign(
 										{},
 										{
 											subpost_id:subpost.id,
 											post_id:subpost.post_id,
-											content:subpost.content
+											content:subpost.content,
+											created_at:subpost.created_at
 										})
 									})
 								})
 						})
 					})
 			})
-			res.json(resObj)
-			console.log(resObj)
 			res.render('index', {
 				title: '劍獅的小小留言板',
 				ejsinput: 'comment.ejs',
-				resObj,
-				username: (req.session.username) ? req.session.username : "訪客請先登入"
+				resObj
 			})
+		}).catch((err) => {
+			console.log('index render failed')
 		})
 	},
 	login: (req,res) => {

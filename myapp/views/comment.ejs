@@ -1,129 +1,93 @@
 <form class="comment__form__create" action="/post" method="post">
 	<div class="comment__icon">
-		<% if(username == "訪客請先登入")	{ %>
-		<img src='avatar/8.png' class='comment__avatar' />
-			<a href="login">訪客請先登入</a>
-		<% } else { %>
-		<img src='avatar/<%	
-				for(var d = 0; d < users.length; d++) {
-					if(users[d].id == username) {
-				%>
-					<%= users[d].id %>
-				<%
-					}
-				} 
-				%>.png' class='comment__avatar' />
-		<div class='comment__nickname'><%= username %></div>
-		<% } %>
+		<% for(var a = 0; a < resObj.length; a++) {
+			if(!req.session.username) { %>
+				<img src='avatar/8.png' class='comment__avatar' />
+				<a href="login">訪客請先登入</a>
+		<%	} else if(resObj[a].nickname == req.session.nickname){ %>
+				<img src='avatar/<%= resObj[a].id%9+1 %>.png' class='comment__avatar' />
+				<div class='comment__nickname'></div>
+		<%	}
+		} %>
 	</div>
-	<input type="hidden" value="0" name="major">
 	<textarea class="comment__form__textarea" name="content"></textarea>
 	<button type="submit" class="btn btn-primary createcomment">留言!</button>
 </form>
 </div>
-<div class='container main'>
-	<% for(var i = 0; i < posts.length; i++ ) { %>
-	<div class='comment'>
-		<div class="comment__main">
-			<div class="comment__icon">
-				<img src='avatar/<%= posts[i].id%9+1 %>.png' class='comment__avatar' />
-				<div class="comment__userinfo">
-					<div class='comment__nickname'>
-				<%	
-				for(var c = 0; c < users.length; c++) {
-					if(users[c].id == posts[i].user_id) {
-				%>
-					<%= users[c].nickname %>
-				<%
-					}
-				} 
-				%>
-					</div>
-					<div class='comment__createdat'><%= posts[i].updatedAt %></div>
-				</div>
-					<div class="dropdown edit">
-						<button class="btn btn-dark dropdown-toggle createcomment" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						    <div class="dropdown-item editing">編輯</div>
-						    <div class="dropdown-item deleting">刪除</div>
-						</div>
-					</div>
-			</div>
-			<input type="hidden" name="num" value='' /> 
-			<div class='comment__content'><%= posts[i].content %></div>
-		</div>
-		<div class='comment__sub'>
-			<% if(username == "訪客請先登入"){ %>
-			<div class="comment__sub__notlogin">
-				<a href="/login" class="button">登入以進行留言</a>
-			</div>
-			<% } else { %>
-			<form class="comment__sub__form" action="/subpost" method="POST">
-				<div class="comment__icon ">
-						<img src=avatar/<%= posts[i].id%9+1 %>.png class='comment__avatar' />
-					<div class="comment__userinfo">
-						<div class='comment__nickname'>
-				<%	
-				for(var c = 0; c < users.length; c++) {
-					if(users[c].id == posts[i].user_id) {
-				%>
-					<%= users[c].nickname %>
-				<%
-					}
-				} 
-				%></div>
-					</div>
-				</div>
-				
-				<input type='hidden' value='' name='major'>
-				<div class='comment__sub__message'>
-					<textarea class="comment__form__textarea" name="content" placeholder="有什麼想法嗎來跟大家說吧!"></textarea>
-					<button type="submit" class="btn btn-dark createcomment">留言</button>
-				</div>
-			</form>
-			<% } %>
-			<% for(var a = 0; a < subposts.length; a++ ) { %>
-		<div class='comment__sub__display'>
-			<div class="comment__icon">
-				<img src='avatar/<%= subposts[i].id%9+1 %>.png' class='comment__avatar' />
-				<div class="comment__userinfo">
-					<div class='comment__nickname'>
-				<%	
-				for(var c = 0; c < users.length; c++) {
-					if(users[c].id == posts[i].user_id) {
-				%>
-					<%= users[c].nickname %>
-				<%
-					}
-				} 
-				%></div>
-						<div class='comment__createdat'></div>
-					</div>
-					<div class="dropdown edit2">
-						<button class="btn btn-dark dropdown-toggle createcomment" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						    <div class="dropdown-item editing">編輯</div>
-						    <div class="dropdown-item deleting">刪除</div>
-						</div>
-					</div>
-				</div>
-			<input type="hidden" name="num" value='' />
-			<div class='comment__content'></div>
-		</div>
-		<% } %>
-	</div>
-	</div>
-	<% } %>
-</div>
 
+<div class='container main'>
+	<div class='comment'>
+	<%	for(var b = 0; b < resObj.length; b++) {
+			for(var c = 0; c < resObj[b].posts.length; c++ ) { %>
+				<div class="comment__main">
+					<div class="comment__icon">
+						<img src='avatar/<%= resObj[a].posts[b].id%9+1 %>.png' class='comment__avatar' />
+						<div class="comment__userinfo">
+							<div class='comment__nickname'><%= resObj[b].nickname %></div>
+							<div class='comment__createdat'><%= resObj[b].posts[c].created_at %></div>
+						</div>
+							<div class="dropdown edit">
+								<button class="btn btn-dark dropdown-toggle createcomment" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								    <div class="dropdown-item editing">編輯</div>
+								    <div class="dropdown-item deleting">刪除</div>
+								</div>
+							</div>
+					</div>
+					<div class='comment__content'><%= resObj[b].posts[c].content %></div>
+				</div>
+				<div class='comment__sub'>
+				<%	if(!req.session.username) { %>
+						<div class="comment__sub__notlogin">
+							<a href="/login" class="button">登入以進行留言</a>
+						</div>
+				<%	} else { %>
+						<form class="comment__sub__form" action="/subpost" method="POST">
+							<div class="comment__icon ">
+							<%	for(var e = 0; e < resObj.length; e++) {
+									if(req.session.nickname == resObj[e].nickname) { %>
+										<img src=avatar/<%= resObj[e].id%9+1 %>.png class='comment__avatar' />
+										<div class="comment__userinfo">
+											<div class='comment__nickname'><%= resObj[e].nickname %></div>
+										</div>
+								<%	}
+								} %>
+							</div>
+							<div class='comment__sub__message'>
+								<textarea class="comment__form__textarea" name="content" placeholder="有什麼想法嗎來跟大家說吧!"></textarea>
+								<button type="submit" class="btn btn-dark createcomment">留言</button>
+							</div>
+						</form>
+					}
+				<%	for(var d = 0; d < resObj[a].posts[b].subposts.length; d++ ) { %>
+						<div class='comment__sub__display'>
+							<div class="comment__icon">
+								<img src='avatar/<%= resObj[a].id%9+1 %>.png' class='comment__avatar' />
+								<div class="comment__userinfo">
+									<div class='comment__nickname'><%= resObj[b].nickname %></div>
+										<div class='comment__createdat'><%= resObj[b].posts[c].subposts[d].created_at %></div>
+									</div>
+									<div class="dropdown edit2">
+										<button class="btn btn-dark dropdown-toggle createcomment" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										</button>
+										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+										    <div class="dropdown-item editing">編輯</div>
+										    <div class="dropdown-item deleting">刪除</div>
+										</div>
+									</div>
+								</div>
+							<div class='comment__content'><%= resObj[b].posts[c].subposts[d].content %></div>
+						</div>
+				<%	} %>
+				</div>
+		<%	} 
+		} %>
+		
+	</div>
+</div>
 <ul class="changePageContainer">
 	<li class="changePageContainer__previous"><img class='changePageContainer__previous' src='previous.jpg'/></li>
-	<% for(var b = 0; b < posts.length/4; b++) { %>
 	<li class="changePageContainer__page"></li>
-	<% } %>
 	<li class='changePageContainer__next'><img class='changePageContainer__next' src='next.jpg'/></li>
 </ul>
-
-
