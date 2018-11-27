@@ -46,7 +46,9 @@ module.exports = {
 			res.render('index', {
 				title: '劍獅的小小留言板',
 				ejsinput: 'comment.ejs',
-				resObj
+				resObj,
+				nickname:(req.session.nickname) ? req.session.nickname : '訪客',
+				id: (req.session.id) ? req.session.id : '8'
 			})
 		}).catch((err) => {
 			console.log('index render failed')
