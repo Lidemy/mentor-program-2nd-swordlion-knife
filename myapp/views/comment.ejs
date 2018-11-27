@@ -7,8 +7,8 @@
 		<%	} else if(resObj[a].nickname == req.session.nickname){ %>
 				<img src='avatar/<%= resObj[a].id%9+1 %>.png' class='comment__avatar' />
 				<div class='comment__nickname'></div>
-		<%	}
-		} %>
+		<%	};
+		}; %>
 	</div>
 	<textarea class="comment__form__textarea" name="content"></textarea>
 	<button type="submit" class="btn btn-primary createcomment">留言!</button>
@@ -51,8 +51,8 @@
 										<div class="comment__userinfo">
 											<div class='comment__nickname'><%= resObj[e].nickname %></div>
 										</div>
-								<%	}
-								} %>
+								<%	};
+								}; %>
 							</div>
 							<div class='comment__sub__message'>
 								<textarea class="comment__form__textarea" name="content" placeholder="有什麼想法嗎來跟大家說吧!"></textarea>
@@ -79,10 +79,10 @@
 								</div>
 							<div class='comment__content'><%= resObj[b].posts[c].subposts[d].content %></div>
 						</div>
-				<%	} %>
+				<%	}; %>
 				</div>
-		<%	} 
-		} %>
+		<%	} ;
+		}; %>
 		
 	</div>
 </div>
