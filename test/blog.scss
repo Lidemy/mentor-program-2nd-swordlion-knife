@@ -66,6 +66,9 @@ p {
 	border-width: 2px;
     border-style: solid;
     border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
+    &__icon {
+    	align-items: center;
+    }
     &__form {
     	text-align: right;
 	    display: flex;
@@ -126,6 +129,9 @@ p {
 	&__submitButton {
 		margin-top:30px;
 	}
+	&__nickname {
+		font-size: 25px;
+	}
 }
 .dropdown {
 	margin-top:20px;
@@ -134,6 +140,9 @@ p {
 	    flex-wrap: wrap;
 	    padding:30px;
 	}
+}
+.errorMessage {
+	color: red;
 }
 .edit, .edit2 {
   width: 100%;

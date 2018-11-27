@@ -1,0 +1,339 @@
+body {
+  background-color: #ffcf41;
+  word-wrap: break-word;
+}
+
+input:hover {
+  cursor: pointer;
+}
+
+li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 10%;
+  font-size: 20px;
+}
+
+.blog {
+  margin-top: 20px;
+}
+.blog__redirection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 25px;
+  color: #3b6b3b;
+}
+.blog__redirection:hover {
+  color: red;
+}
+
+.countpeople {
+  width: 48px;
+  height: 48px;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0px auto;
+  margin-bottom: 80px;
+  padding: 0px;
+}
+
+.createcomment {
+  margin-top: 10px;
+  background-color: black;
+}
+
+.comment {
+  padding: 12px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 1px 1px 2px 3px #888888;
+          box-shadow: 1px 1px 2px 3px #888888;
+  margin-top: 20px;
+  background: white;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
+}
+.comment__avatar {
+  width: 70px;
+  height: 65px;
+  margin: 10px 10px;
+}
+.comment__content {
+  padding: 10px;
+  font-size: 20px;
+}
+.comment__createdat {
+  font-size: 14px;
+  display: block;
+}
+.comment__userinfo {
+  text-align: left;
+  padding: 10px;
+  margin-top: 5px;
+  width: 50%;
+  margin-left: 10px;
+  font-size: 20px;
+}
+.comment__sub {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.comment__sub__display {
+  margin-top: 15px;
+  padding: 10px;
+  background: #b5b4b4;
+  border-radius: 15px;
+  width: 100%;
+}
+.comment__sub__message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+.comment__sub__message .comment__form__textarea {
+  height: 100px;
+  margin-right: 10px;
+  width: 88%;
+}
+.comment__sub__form {
+  padding: 10px;
+  background: #b5b4b4;
+  border-radius: 15px;
+  width: 100%;
+  margin-bottom: 0px;
+}
+.comment__sub__form .comment__icon {
+  margin-bottom: 0px;
+}
+.comment__sub__notlogin {
+  padding: 10px;
+  background: #b5b4b4;
+  border-radius: 15px;
+  width: 100%;
+  text-align: center;
+}
+.comment__sub__notlogin a {
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+}
+.comment__sub__notlogin:hover {
+  background-color: #ea2b2b;
+}
+.comment__form {
+  text-align: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.comment__form__button {
+  margin-top: 10px;
+}
+.comment__form__button__set {
+  margin: 15px;
+  font-size: 16px;
+  width: 190px;
+  left: -10px;
+}
+.comment__form__button__set a {
+  text-decoration: none;
+}
+.comment__form__create {
+  margin-bottom: 0px;
+  text-align: right;
+}
+.comment__form__logininfo {
+  display: inline;
+  width:100%;
+}
+.comment__form__logininfo__inputarea {
+  margin-top: 15px;
+  margin-right: 27%;
+  border-bottom: 2px solid gray;
+  outline: none;
+  font-size: 25px;
+}
+.comment__form__textarea {
+  padding: 10px;
+  width: 100%;
+  height: 200px;
+  resize: none;
+  outline: none;
+  border-color: black;
+  font-size: 18px;
+}
+.comment__icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.comment__icon .comment__avatar {
+  width: 48px;
+  height: 48px;
+}
+
+.changePageContainer {
+  padding: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.changePageContainer__previous img {
+  width: 48px;
+}
+.changePageContainer__previous:hover {
+  cursor: pointer;
+}
+.changePageContainer__next img {
+  width: 48px;
+}
+.changePageContainer__next:hover {
+  cursor: pointer;
+}
+.changePageContainer__page:hover {
+  cursor: pointer;
+}
+
+.dropdown-menu.show {
+  -webkit-transform: translate3d(224px, 33px, 0px);
+          transform: translate3d(224px, 33px, 0px);
+}
+
+.edit, .edit2 {
+  width: 100%;
+  text-align: right;
+  right: 5px;
+}
+
+.logout {
+  position: absolute;
+  top: 70px;
+  right: 0px;
+  padding: 10px 30px;
+  color: white;
+}
+.logout:hover {
+  cursor: pointer;
+}
+
+.navBar {
+  background-color: burlywood;
+  -webkit-box-shadow: 1px 1px 2px 3px #888888;
+          box-shadow: 1px 1px 2px 3px #888888;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 10px;
+}
+.navBar__title {
+  font-size: 35px;
+}
+
+.pic__liveBetter {
+  max-width: 547px;
+  margin: 0px auto;
+  margin-top: 25px;
+}
+.pic__liveBetter__inside {
+  width: 100%;
+}
+.pic__swordlion {
+  background-image: url("swordlion.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 140px;
+  right: 0px;
+  opacity: 0.8;
+  width: 227px;
+  height: 227px;
+}
+
+.peoplenum {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+#showbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .comment {
+    margin: 20px;
+  }
+
+  .container {
+    max-width: 500px;
+  }
+
+  .navBar {
+    margin: 20px;
+  }
+  .navBar__title {
+    font-size: 18px;
+  }
+
+  .comment__form {
+    font-size: 25px;
+  }
+  .comment__form__logininfo__inputarea {
+    margin-bottom: 15px;
+    width: 90%;
+  }
+
+  .blog {
+    margin-top: 60px;
+  }
+}
+@media screen and (max-width: 1098px) {
+  .pic__swordlion {
+    display: none;
+  }
+}
