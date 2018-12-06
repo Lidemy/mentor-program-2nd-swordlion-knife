@@ -3,7 +3,7 @@ $picheight:48px;
 $commentbgcolor:#b5b4b4;
 
 body { 
-	backtoArticleground-color: #ffcf41;
+	background-color: #ffcf41;
 	word-wrap:break-word;
 }
 input {
@@ -42,7 +42,7 @@ li {
 }
 .createcomment {
 	margin-top: 10px;
-    backtoArticleground-color: black;
+    background-color: black;
 }
 .comment {
 	padding: 12px;
@@ -81,7 +81,7 @@ li {
 		&__display {
 			margin-top:15px;
 			padding: 10px;
-			backtoArticleground:$commentbgcolor;
+			background:$commentbgcolor;
 			border-radius: 15px;
 			width:100%;
 		}
@@ -96,7 +96,7 @@ li {
 		}
 		&__form {
 			padding: 10px;
-		    backtoArticleground: $commentbgcolor;
+		    background: $commentbgcolor;
 		    border-radius: 15px;
 		    width: 100%;
 		    margin-bottom:0px;
@@ -106,7 +106,7 @@ li {
 		}
 		&__notlogin {
 			padding: 10px;
-		    backtoArticleground: $commentbgcolor;
+		    background: $commentbgcolor;
 		    border-radius: 15px;
 		    width: 100%;
 		    text-align: center;
@@ -116,17 +116,15 @@ li {
 			    color: white;
 		    }
 		    &:hover {
-	    		backtoArticleground-color: #ea2b2b;
+	    		background-color: #ea2b2b;
 	    	}
 		}
     }
     &__form {
     	text-align: right;
-	    display: flex;
-	    flex-wrap: wrap;
-	    justify-content: center;
 	    &__button {
 	    	margin-top: 10px;
+	    	text-align: center;
 	    	&__set {
 	    		margin: 15px;
 			    font-size: 16px;
@@ -164,6 +162,7 @@ li {
     &__icon {
 	    display: flex;
 	    margin-bottom: 10px;
+	    align-items: center;
 	    width:100%;
 	    .comment__avatar {
 	    	width:$picwidth;
@@ -216,7 +215,7 @@ li {
 	}
 }
 .navBar {
-	backtoArticleground-color: burlywood;
+	background-color: burlywood;
 	box-shadow: 1px 1px 2px 3px #888888;
 	justify-content: center;
 	margin-top: 10px;
@@ -234,9 +233,9 @@ li {
 		}
 	}
 	&__swordlion {
-		backtoArticleground-image: url("picture/swordlion.gif");
-		backtoArticleground-size:contain; 
-		backtoArticleground-repeat: no-repeat; 
+		background-image: url("picture/swordlion.gif");
+		background-size:contain; 
+		background-repeat: no-repeat; 
 		position: fixed;
 		top:140px;
 		right:0px;

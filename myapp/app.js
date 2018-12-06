@@ -11,6 +11,9 @@ app.set('view engine','ejs')
 // 用來讀取表單
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
+app.use(session({
+	cookie: {maxAge:600 * 1000}
+}))
 
 const User = require('./model/user')
 const Post = require('./model/post')

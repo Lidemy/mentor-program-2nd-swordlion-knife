@@ -29,7 +29,7 @@ module.exports = {
 									user_id:post.user_id,
 									content:post.content,
 									created_at:post.created_at,
-									subpost:post.subposts.map(subpost => {
+									subposts:post.subposts.map(subpost => {
 										return Object.assign(
 										{},
 										{
@@ -46,7 +46,9 @@ module.exports = {
 			res.render('index', {
 				title: '劍獅的小小留言板',
 				ejsinput: 'comment.ejs',
-				resObj
+				resObj,
+				nickname:(req.session.nickname) ? req.session.nickname : '訪客',
+				id: (req.session.user_id) ? req.session.user_id : 8
 			})
 		}).catch((err) => {
 			console.log('index render failed')
@@ -66,7 +68,7 @@ module.exports = {
 			}
 		}).then(data => {
 			if(data) {
-				req.session.id = data.id
+				req.session.user_id = data.id
 				req.session.username = data.username
 				req.session.nickname = data.nickname
 				res.redirect('/')
@@ -98,11 +100,11 @@ module.exports = {
 					nickname: req.body.nickname,
 					username: req.body.usernames,
 					password: req.body.passwords
-				}).then(() => {
-					req.session.id = data.id
+				}).then(plugin => {
+					req.session.user_id = plugin.id
 					req.session.username = req.body.usernames
 					req.session.nickname = req.body.nicknames
-					res.redirect('/')
+					res.redirect('/')	
 				})
 			}
 		}).catch((err) => {
@@ -129,9 +131,16 @@ module.exports = {
 		})
 	},
 	subpost:(req,res) => {
-		db.subposts.create({
-			post_id:req.body.major,
-			content:req.body.content
+		db.users.find({
+			where: {
+				username: req.session.username
+			}
+		}).then((data) => {
+			db.subposts.create({
+				post_id:req.body.major,
+				content:req.body.content
+			})
+			res.redirect('/')
 		})
 	},
 	logout: (req,res) => {
