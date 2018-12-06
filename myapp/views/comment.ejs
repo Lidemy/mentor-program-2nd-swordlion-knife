@@ -4,7 +4,7 @@
 				<img src='avatar/8.png' class='comment__avatar' />
 				<a href="login">訪客請先登入</a>
 		<%	} else { %>
-				<img src='avatar/<%= (id)%9+1 %>.png' class='comment__avatar' />
+				<img src='avatar/<%= id%9+1 %>.png' class='comment__avatar' />
 				<div class='comment__nickname'><%= nickname %></div>
 		<%	} %>
 	</div>
@@ -21,7 +21,7 @@
 					<div class='comment'>
 						<div class="comment__main">
 							<div class="comment__icon">
-								<img src='avatar/<%= resObj[a].posts[b].post_id%9+1 %>.png' class='comment__avatar' />
+								<img src='avatar/<%= resObj[a].user_id%9+1 %>.png' class='comment__avatar' />
 								<div class="comment__userinfo">
 									<div class='comment__nickname'><%= resObj[a].nickname %></div>
 									<div class='comment__createdat'><%= resObj[a].posts[b].created_at %></div>
@@ -51,6 +51,7 @@
 										</div>
 									</div>
 									<div class='comment__sub__message'>
+										<input type='hidden' name='major' value='<%= resObj[a].posts[b].post_id %>' />
 										<textarea class="comment__form__textarea" name="content" placeholder="有什麼想法嗎來跟大家說吧!"></textarea>
 										<button type="submit" class="btn btn-dark createcomment">留言</button>
 									</div>
@@ -76,7 +77,7 @@
 										</div>
 									<div class='comment__content'><%= resObj[a].posts[b].subposts[c].content %></div>
 								</div>
-								<%	}
+								<%	} 
 							} %>
 						</div>
 					</div>
@@ -85,8 +86,3 @@
 			} 
 		} %>
 </div>
-<ul class="changePageContainer">
-	<li class="changePageContainer__previous"><img class='changePageContainer__previous' src='previous.jpg'/></li>
-	<li class="changePageContainer__page"></li>
-	<li class='changePageContainer__next'><img class='changePageContainer__next' src='next.jpg'/></li>
-</ul>
