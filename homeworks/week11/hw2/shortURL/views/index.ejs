@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<%- include('header.ejs') %>
+	</head>
+	<body onload="ShowTime()">
+		<div class='container'>
+			<div class="pic__swordlion"></div>
+			<div class="pic__liveBetter">
+				<img src="pic.gif" class="pic__liveBetter__inside"/>
+			</div>
+			<div class='navBar'>
+				短網址產生器☆★☆
+			</div>
+			<div class='mainContent'>
+				<form class='longUrlInput' action='/transform' method='POST'>
+					<input type='url' name='url' class='longUrlInput__url' placeholder="請輸入長網址" />
+					<input type='submit' class='btn btn-primary' />
+				</form>
+				<div class='output'>
+					<div class='output__display'>
+						<%= shortUrl %>
+					</div>
+				</div>
+			</div>
+			<div id="showbox"></div>
+		</div>
+	</body>
+</html>

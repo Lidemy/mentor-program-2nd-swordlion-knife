@@ -1,0 +1,63 @@
+body {
+  background-color: #ffcf41;
+  word-wrap: break-word;
+}
+.container {
+  max-width: 700px;
+  margin: 0px auto;
+  margin-bottom: 80px;
+  padding: 0px;
+  text-align: center;
+}
+.mainContent {
+	border-width: 2px;
+    border-style: solid;
+    border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
+    margin-top:30px;
+    background-color: burlywood;
+}
+.navBar {
+	font-size:25px;
+  background-color: burlywood;
+  box-shadow: 1px 1px 2px 3px #888888;
+  justify-content: center;
+  margin-top: 10px;
+}
+.output {
+	width:40%;
+	margin:20px auto;
+	border:1px solid;
+}
+.pic__liveBetter {
+  max-width: 547px;
+  margin: 0px auto;
+  margin-top: 25px;
+}
+.pic__liveBetter__inside {
+  width: 100%;
+}
+.pic__swordlion {
+  background-image: url(swordlion.gif);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 140px;
+  right: 0px;
+  opacity: 0.8;
+  height: 227px;
+  width: 227px;
+}
+.longUrlInput {
+	margin:30px 0px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.longUrlInput__url {
+	width:60%;
+	padding:10px;
+	margin-right:10px;
+}
+#showbox {
+	margin-top: 20px;
+}
